@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(31, 189, 133);
+}
+
+header {
+    background-color: rgb(255, 146, 107);
+    color: black;
+    border: 2px solid black;
+    width: 100%;
+    padding-bottom: 10px
+}
+.full-width-img {
+    width: 100%;
+    height: auto;
+}
+
+.cheese-pizza-img{
+   
+    border: 2px solid black;
+    
+    
+}
+.menu-table {
+    border: 4px double black;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+.menu-table td{
+    border: 4px double black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+
+.menu-table td:nth-child(1){
+text-align: left;
+}
+.menu-table td:nth-child(2){
+text-align: right;
+}
