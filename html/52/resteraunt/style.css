@@ -72,7 +72,7 @@ footer {
     padding-bottom: 1rem;
 }
 
-.menu-table {
+/*.menu-table {
     border: 4px double black;
     border-collapse: collapse;
     margin: auto;
@@ -94,3 +94,18 @@ footer {
 .menu-table td:nth-child(2) {
     text-align: right;
 }
+*/
+
+.menu-item{
+    display: block;
+    margin-bottom: 1rem;
+}
+.menu-item:hover {
+    scale: 1.5;
+    transition: scale 0.3s ease-in-out;
+}
+
+h3{
+    text-decoration: underline;
+}
+
