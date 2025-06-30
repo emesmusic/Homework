@@ -13,10 +13,7 @@ html {
     cursor: url("images/pizza-pointer.cur"), none;
 }
 
-#pizza-video{
-    max-height: 35rem;
-    max-width: 100%;
-}
+
 
 body {
     padding-top: 9.5rem;
@@ -25,7 +22,7 @@ body {
     xbackground-color: #2e6cd84e;
 
 
-    
+
     padding-bottom: 0px;
     text-align: center;
     box-sizing: border-box;
@@ -58,7 +55,19 @@ header {
     padding-top: 0px;
     height: 9rem;
     box-sizing: border-box;
-    
+
+}
+
+#pizza-video {
+
+    left: 0;
+    top: 0;
+    margin-top: 7rem;
+    max-height: 35rem;
+    max-width: 100%;
+    border: 2px solid rgb(255, 146, 107);
+    border-radius: 3rem;
+    display: border-box;
 }
 
 a:visited {
