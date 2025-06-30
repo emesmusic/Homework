@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+
+html {
+    background-color: rgb(255, 146, 107);
+    background-image: url(images/italy.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: url("images/pizza-pointer.cur"), none;
+}
+
+#pizza-video{
+    max-height: 35rem;
+    max-width: 100%;
+}
+
+body {
+    padding-top: 9.5rem;
+    position: relative;
+    font-family: "Josefin Sans", sans-serif;
+    xbackground-color: #2e6cd84e;
+
+
+    
+    padding-bottom: 0px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 800px;
+    min-width: 300px;
+    min-height: calc(100vh - 6px);
+    xborder: 2px solid black;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 1rem;
+
+
+}
+
+
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: rgb(255, 146, 107);
+    color: black;
+    border: 2px solid black;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 1rem;
+    padding-top: 0px;
+    height: 9rem;
+    box-sizing: border-box;
+    
+}
+
+a:visited {
+    color: #0000EE
+}
+
+a:hover {
+    color: #FF0000;
+    cursor: url("images/over-link.cur"), none;
+}
+
+.full-width-img {
+    width: 100%;
+    height: auto;
+}
+
+#cheese-pizza-img {
+
+    border: 2px solid black;
+
+    border-radius: 1rem;
+    padding: 0px;
+    margin: 0px;
+
+
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #000000;
+}
+
+.content-div {
+    border-radius: 1rem;
+    background-color: rgb(255, 146, 107);
+    color: black;
+    border: 2px solid black;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+/*.menu-table {
+    border: 4px double black;
+    border-collapse: collapse;
+    margin: auto;
+
+}
+
+.menu-table td {
+    border: 4px double black;
+    border-collapse: collapse;
+    padding: 0.5rem;
+
+}
+
+
+.menu-table td:nth-child(1) {
+    text-align: left;
+}
+
+.menu-table td:nth-child(2) {
+    text-align: right;
+}
+*/
+
+.menu-item {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.menu-item:hover {
+    scale: 1.5;
+    transition: scale 0.3s ease-in-out;
+}
+
+h3 {
+    text-decoration: underline;
+}
