@@ -1,22 +1,34 @@
+html {
+    scroll-padding-top: var(--nav-footer-height);
+    --margins-small: 1fr 85% 1fr;
+    --nav-footer-height: 3rem;
+    --gray-color: rgb(204, 204, 204);
+    --border-radius: 6px;
+}
+
 html,
 body {
     height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    --margins-small: 1fr 85% 1fr;
-    --nav-footer-height: 3rem;
-    --gray-color: rgb(204, 204, 204);
-    --curved-edges: 6px;
+
+
+
 }
 
+
+
 body {
+
+
     font-family: Helvetica, Arial, sans-serif;
     display: grid;
     grid-template-areas: 'nav'
         'main'
         'footer';
     grid-template-rows: var(--nav-footer-height) 1fr var(--nav-footer-height);
+
 }
 
 
@@ -26,14 +38,19 @@ nav,
 footer {
     background-color: black;
     height: var(--nav-footer-height);
+    width: 100%;
     align-items: center;
+    
 }
 
 nav {
-    grid-area: nav;
+    xgrid-area: nav;
     display: grid;
     grid-template-areas: '. nav .';
     grid-template-columns: var(--margins-small);
+    xtop: 0;
+    position: fixed;
+
 }
 
 
@@ -44,14 +61,20 @@ main {
         '. content .';
     grid-template-columns: var(--margins-small);
     grid-template-rows: auto 1fr;
+    xoverflow-y: auto;
+
 }
 
 footer {
-    grid-area: footer;
+    xgrid-area: footer;
     color: white;
     display: grid;
     grid-template-areas: '. footer-text .';
     grid-template-columns: var(--margins-small);
+    bottom: 0;
+    position: sticky;
+    grid-area: footer;
+
 }
 
 footer span {
@@ -86,8 +109,8 @@ header {
     text-align: center;
     background-color: var(--gray-color);
     padding: 1.5rem;
-    border-bottom-right-radius: var(--curved-edges);
-    border-bottom-left-radius: var(--curved-edges);
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
 }
 
 header h1 {
@@ -101,44 +124,44 @@ header h1 {
     ;
 }
 
-.products {
+#products {
     display: grid;
 
 }
 
-.products h3 {
-    margin-bottom: 0;
-
+h3 {
+    margin-top: 30px;
 }
 
-.products h4 {
+#products h4 {
     text-align: center;
 }
 
-.products p {
+p {
     text-align: justify;
-    margin: 0;
+    margin-bottom: 5px;
+
 }
 
-.products img,
+#products img,
 video {
     width: 100%;
 
 }
 
-.product{
+.product {
     margin-bottom: 10px;
 }
 
-form {
+#sign-up {
     display: grid;
     background-color: var(--gray-color);
-    border-radius: var(--curved-edges);
+    border-radius: var(--border-radius);
     padding: 20px;
 }
 
 
-form h3,
+#sign-up h3,
 label,
 input {
 
@@ -147,31 +170,82 @@ input {
 
 }
 
-form input {
-    box-shadow: rgba(0, 0, 0, 0.518) 2px 2px 2px 1px;
-    border-radius: var(--curved-edges);
+#sign-up h3 {
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
-form input[type="submit"] {
+#sign-up input {
+    box-shadow: rgba(0, 0, 0, 0.518) 2px 2px 2px 1px;
+    border-radius: var(--border-radius);
+}
+
+#sign-up input[type="submit"] {
     border: 0px;
     width: fit-content;
     height: fit-content;
 }
 
 
-form label {
+#sign-up label {
 
     margin-bottom: 4px;
 }
 
+#financials {
+    min-width: 0;
+}
+
+#financials-scroll-container {
+    overflow-x: auto;
+
+}
+
+#financials-scroll-container table {
+    margin: auto;
+}
 
 
+#financials-scroll-container table,
+td,
+th {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
 
+th {
+    text-align: center;
+}
 
+td {
+    text-align: right;
+}
+
+td:nth-child(1) {
+    font-weight: bold;
+}
+
+td:nth-child(6) {
+    color: red;
+}
+
+tr:not(:last-child):not(:first-child):hover {
+    background-color: rgb(169, 244, 255);
+}
+
+tr:nth-child(even):not(:last-child) {
+    background-color: rgb(237, 223, 255);
+}
+
+#financials-scroll-container caption {
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+}
 
 
 @media (width >=800px) {
-    .products {
+    #products {
         grid-template-areas: 'title title title'
             'product1 product2 product3';
         grid-template-columns: repeat(auto-fit, 1fr);
@@ -194,6 +268,10 @@ form label {
         border-right: 1px solid black;
     }
 
+
+}
+
+@media (width >=1000px) {
     form {
         grid-template-areas: 'title title title'
             'name email submit';
@@ -202,20 +280,20 @@ form label {
         justify-content: center;
     }
 
-    form h3 {
+    #sign-up h3 {
         grid-area: title;
 
     }
 
-    form label:has(input[name="name"]) {
+    #sign-up label:has(input[name="name"]) {
         grid-area: name;
     }
 
-    form label:has(input[name="email"]) {
+    #sign-up label:has(input[name="email"]) {
         grid-area: email;
     }
 
-    form input[type="submit"] {
+    #sign-up input[type="submit"] {
         grid-area: submit;
     }
 }
