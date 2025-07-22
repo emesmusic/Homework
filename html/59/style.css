@@ -12,9 +12,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
-
 
 nav,
 footer {
@@ -22,11 +20,9 @@ footer {
     height: var(--nav-footer-height);
     width: 100%;
     align-items: center;
-
 }
 
 nav {
-
     display: grid;
     grid-template-areas: '. nav .';
     grid-template-columns: var(--margins);
@@ -34,43 +30,32 @@ nav {
     top: 0;
 }
 
-
 body {
     font-family: Helvetica, Arial, sans-serif;
-
     display: grid;
     grid-template-areas:
         '. content .';
     grid-template-columns: var(--margins);
     grid-template-rows: auto 1fr;
-
-
-
 }
 
 main {
     grid-area: content;
     padding-block: var(--nav-footer-height);
-
-
 }
 
 footer {
-
     color: white;
     display: grid;
     grid-template-areas: '. footer-text .';
     grid-template-columns: var(--margins);
     bottom: 0;
     position: fixed;
-
-
 }
 
 footer span {
     grid-area: footer-text;
 }
-
 
 nav ul {
     padding: 0;
@@ -95,7 +80,6 @@ nav a:hover {
 }
 
 header {
-
     text-align: center;
     background-color: var(--gray-color);
     padding: 1.5rem;
@@ -111,12 +95,10 @@ header h1 {
     grid-area: content;
     display: grid;
     grid-auto-rows: max-content;
-    ;
 }
 
 #products {
     display: grid;
-
 }
 
 h3 {
@@ -130,13 +112,11 @@ h3 {
 p {
     text-align: justify;
     margin-bottom: 5px;
-
 }
 
 #products img,
 video {
     width: 100%;
-
 }
 
 .product {
@@ -154,10 +134,8 @@ video {
 #sign-up h3,
 label,
 input {
-
     text-transform: capitalize;
     justify-self: center;
-
 }
 
 #sign-up h3 {
@@ -178,7 +156,6 @@ input {
 
 
 #sign-up label {
-
     margin-bottom: 4px;
 }
 
@@ -188,7 +165,6 @@ input {
 
 #financials-scroll-container {
     overflow-x: auto;
-
 }
 
 #financials-scroll-container table {
@@ -239,7 +215,6 @@ tr:nth-child(even):not(:last-child) {
         grid-template-areas: 'title title title'
             'product1 product2 product3';
         grid-template-columns: repeat(auto-fit, 1fr);
-        ;
     }
 
     .products-intro {
@@ -251,14 +226,10 @@ tr:nth-child(even):not(:last-child) {
         margin-bottom: 30px;
     }
 
-
-
     .product:not(.products-intro):nth-child(odd) {
         border-left: 1px solid black;
         border-right: 1px solid black;
     }
-
-
 }
 
 @media (width >=1000px) {
@@ -272,7 +243,6 @@ tr:nth-child(even):not(:last-child) {
 
     #sign-up h3 {
         grid-area: title;
-
     }
 
     #sign-up label:has(input[name="name"]) {
