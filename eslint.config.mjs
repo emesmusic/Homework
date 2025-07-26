@@ -8,6 +8,8 @@ export default defineConfig([
   { files: ["**/*.js"], languageOptions: { sourceType: "script" } },
   { files: ["**/*.{js,mjs,cjs}"], languageOptions: { globals: globals.browser } },
   {"rules":{
-    "no-var": "error"
+    "no-var": "error",
+    "semi" : "error",
+    "use strict": "error"
   }}
 ]);
