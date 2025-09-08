@@ -4,13 +4,12 @@
 
     let buttonCounter = 1;
 
-    document.getElementById('firstButton').addEventListener('click', buttonCreator);
-
+    document.getElementById('buttonContainer').addEventListener('click', buttonCreator);
+    
     function buttonCreator() {
         const newButton = document.createElement('button');
         newButton.textContent = `${++buttonCounter}`;
-        newButton.addEventListener('click', buttonCreator);
-        document.body.appendChild(newButton);
+        document.getElementById('buttonContainer').appendChild(newButton);
     }
 
 
