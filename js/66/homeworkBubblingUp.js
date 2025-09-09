@@ -10,6 +10,7 @@
         const newButton = document.createElement('button');
         newButton.textContent = `${++buttonCounter}`;
         document.getElementById('buttonContainer').appendChild(newButton);
+        
     }
 
 

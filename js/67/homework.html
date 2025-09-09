@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        table{
+            margin: auto;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+        th, td {
+            padding: 10px;
+        }
+        th {
+            text-align: left;
+        }
+        form {
+            margin-bottom: 20px;
+        
+        }
+        label {
+            margin-right: 10px;
+        }
+        input[type="color"] {
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        div{
+            text-align: center;
+            
+        }
+       
+    </style>
+</head>
+<body>
+    <div>
+<form method="get">
+<label>Text Color:<input type="color" value="#000000" id="textColor"></label>
+<label>Background Color:<input type="color" value="#ffffff" id="backColor"></label>
+<button type="submit">Apply</button>
+</form>
+
+<table id="colorChangeHistoryTable">
+    <tr>
+        <th>Text Color</th>
+        <th>Background Color</th>
+        <th>Time</th>
+    </tr>
+    <tr>
+        <td colspan="3">No Data</td>
+    </tr>
+</table>
+    </div>
+    <script src="homework.js"></script>
+</body>
+</html>
