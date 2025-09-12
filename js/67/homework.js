@@ -20,9 +20,14 @@
         };
 
         colorChangeHistory.push(newColor);
-        colorChangeHistoryTable.insertRow().innerHTML = `<td>${newColor.tColor}</td><td>${newColor.bColor}</td><td>${newColor.time}</td>`;
-        document.body.style.backgroundColor = backColor.value;
-        document.body.style.color = textColor.value;
+        const newRow = colorChangeHistoryTable.insertRow();
+        newRow.innerHTML = `<td>${newColor.tColor}</td><td>${newColor.bColor}</td><td>${newColor.time}</td>`;
+        newRow.addEventListener('click', () => {
+            document.body.style.backgroundColor = newColor.bColor;
+            document.body.style.color = newColor.tColor;
+        });
+        document.body.style.backgroundColor = newColor.bColor;
+        document.body.style.color = newColor.tColor;
 
     });
 
