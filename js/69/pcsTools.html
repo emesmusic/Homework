@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        background-color: pink;
+      }
+      #testText {
+        display: inline-block;
+        padding: 8px;
+      }
+
+
+      button {
+        display: inline-block;
+        font-size: 24px;
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="potus">Donald Trump</h1>
+    <h1 id="charlie">Charlie Kirk</h1>
+    <button id="testButton0">Hide</button>
+    <button id="testButton1">Show</button>
+    <button id="testButton2">Sparkle</button>
+    <h1 id="testText">Test Text</h1>
+
+    <script src="pcsTools.js"></script>
+    <script>
+      const testButton0 = pcs('#testButton0');
+      const testButton1 = pcs('#testButton1');
+      const testButton2 = pcs('#testButton2');
+      const testText = pcs('#testText');
+      testButton0.click(() => testText.hide());
+      testButton1.click(() => testText.show());
+      testText.click(() => testText.sparkle(5000, 100));
+      testButton2.click(() => testText.sparkle(5000));
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+      const potus = /*pcs*//*jQuery*/$('#potus');
+      potus.css('color', 'red');
+      console.log(potus.css('color'));
+      console.log(potus.css('backgroundColor'));
+      potus.click(() => {
+        console.log('potus was clicked');
+        potus.css('bottom', 0);
+      });
+      potus.on('mouseenter', () => potus.css('fontSize', '64px'));
+      potus.on('mouseleave', () => potus.css('fontSize', '2em'));
+
+      potus.css('position', 'absolute');
+      potus.css('bottom', '100px');
+
+      const charlie = /*pcs*//*jQuery*/$('#charlie');
+      charlie.css('color', 'green');
+    </script>
+  </body>
+
+</html>
