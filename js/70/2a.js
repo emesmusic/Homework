@@ -11,9 +11,5 @@ globalThis.app.counter = (function () {
             value = 0;
             return this;
         }
-
     };
-
-
-
 }());

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homework 71</title>
+        <style>
+            #theDiv {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #fileContents {
+                margin-top: 20px;
+                width: 40vh;
+                height: 40vh;
+                overflow: auto;
+                border: 1px solid black;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+       
+
+        </style>
+    </head>
+
+    <body>
+        <div id="theDiv">
+            <input type="text" id="fileNameInput" placeholder="Enter file name here">
+            <button id="submitButton">Submit</button>
+            <div id="fileContents"></div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="homework.js"></script>
+    </body>
+
+</html>
