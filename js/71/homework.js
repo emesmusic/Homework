@@ -4,21 +4,26 @@
 
 (function () {
     //I did it this way so the image was preloaded into the cache so even on a slow network it would display as soon as the button was clicked
-   const loadingAnimation = $('<img src="images/loading.gif" id="loading" alt="Loading...">'); 
+    const loadingAnimation = $('<img src="images/loading.gif" id="loading" alt="Loading...">');
     const submitButton = $('#submitButton');
+
+    const fileNameInput = $('#fileNameInput');
+    fileNameInput.keypress(e => { if (e.key === 'Enter') { submitButton.click(); } });
+
     submitButton.click(
         async () => {
             $('#fileContents').html(loadingAnimation);
             try {
-                if (!$('#fileNameInput').val()) {
+                if (!fileNameInput.val().trim()) {
                     throw new Error('No valid file name provided');
                 }
-                let fileNameObjectThing = await fetch($('#fileNameInput').val());
+                let fileNameObjectThing = await fetch(fileNameInput.val().trim());
 
                 if (!fileNameObjectThing.ok) {
                     throw new Error(`${fileNameObjectThing.status} - ${fileNameObjectThing.statusText}`);
                 }
                 let fileContents = await fileNameObjectThing.text();
+                fileNameInput.val('');
                 $('#fileContents').text(fileContents);
 
             } catch (error) {
