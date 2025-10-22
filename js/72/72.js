@@ -12,7 +12,7 @@
     document.getElementById('search-button').addEventListener('click', async function (e) {
         e.preventDefault();
         window.scrollTo(0, 0);
-        if(backButton.classList.contains('invisible') === false) {
+        if (backButton.classList.contains('invisible') === false) {
             backButton.classList.add('invisible');
         }
         let recipeObject;
@@ -65,7 +65,7 @@
     function displayRecipe(meal, multiResultsDiv = null) {
 
         if (multiResultsDiv) {
-            
+
             backButton.textContent = 'Back to Results';
             backButton.classList.add('bg-gray-500', 'text-white', 'p-2', 'rounded', 'hover:bg-gray-600', 'active:bg-gray-700', 'active:scale-95', 'transition', 'duration-150', 'cursor-pointer');
             backButton.addEventListener('click', () => {
@@ -181,7 +181,7 @@
         recipeDiv.appendChild(ingredientsDiv);
         ingredientsDiv.classList.add('md:order-2', 'md:row-span-2', 'lg:row-span-1');
         recipeDiv.appendChild(instructionsDiv);
-        instructionsDiv.classList.add('md:order-4', 'md:col-span-2', 'lg:col-start-2', 'lg:order-5');
+        instructionsDiv.classList.add('md:order-4', 'lg:order-5', 'md:col-span-2', ...(!ytLink ? ['lg:col-start-1', 'lg:col-span-3'] : ['lg:col-start-2', 'lg:col-span-2']));
         recipeResultsDiv.appendChild(recipeDiv);
 
 
