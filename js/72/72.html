@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipe App</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f4;
+                color: #333;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100vw;
+
+            }
+
+            header {
+                font-family: Arial, sans-serif;
+
+                background-color: #f4f4f4;
+                color: #333;
+                width: 100vw;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="fixed top-0 left-0 w-full bg-white shadow z-50 pt-4 pb-2">
+            <button id="back-button" class="hidden bg-gray-500 text-white p-2 rounded hover:bg-gray-600 absolute left-4 top-1/2 transform -translate-y-1/2 z-50">
+                Back to Results
+            </button>
+            <div class="flex flex-col items-center text-center">
+
+
+
+                <h1>Welcome to the Recipe App</h1>
+                <p>Find and delicious recipes!</p>
+                <form id="recipe-form" class="m-4">
+                    <input type="text" id="recipe-input" placeholder="Enter recipe name"
+                        class="border p-2 mr-2 rounded">
+                    <button id="search-button" type="submit"
+                        class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 active:bg-blue-700 active:scale-95 transition duration-150 cursor-pointer">Search</button>
+                </form>
+            </div>
+            <div class="w-screen h-1 bg-gray-300"></div>
+        </header>
+
+        <div id="recipe-results" class="w-full max-w-full mx-auto mt-35"></div>
+
+
+
+
+
+        <script src="72.js"></script>
+    </body>
+
+</html>
