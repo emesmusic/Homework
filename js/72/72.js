@@ -70,6 +70,7 @@
             backButton.classList.add('bg-gray-500', 'text-white', 'p-2', 'rounded', 'hover:bg-gray-600', 'active:bg-gray-700', 'active:scale-95', 'transition', 'duration-150', 'cursor-pointer');
             backButton.addEventListener('click', () => {
                 recipeResultsDiv.innerHTML = '';
+                displayMessage('Multiple recipes found. Please select one:');
                 recipeResultsDiv.appendChild(multiResultsDiv);
                 backButton.classList.add('hidden');
             });
