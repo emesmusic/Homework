@@ -3,6 +3,7 @@
 
     let recipeResultsDiv = document.getElementById('recipe-results');
     const messageDiv = document.createElement('div');
+    const backButton = document.querySelector('#back-button');
     messageDiv.classList.add('font-bold', 'mb-2');
     messageDiv.style.textAlign = 'center';
 
@@ -10,6 +11,10 @@
 
     document.getElementById('search-button').addEventListener('click', async function (e) {
         e.preventDefault();
+        window.scrollTo(0, 0);
+        if(backButton.classList.contains('hidden') === false) {
+            backButton.classList.add('hidden');
+        }
         let recipeObject;
         try {
             let recipeData = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${document.getElementById('recipe-input').value}`);
@@ -36,7 +41,7 @@
             const multiResultsDiv = document.createElement('div');
             recipeObject.meals.forEach(meal => {
                 const mealDiv = document.createElement('div');
-                mealDiv.classList.add('border', 'p-4', 'mb-4', 'rounded', 'shadow', 'cursor-pointer', 'hover:bg-blue-200', 'active:scale-95', 'transition', 'duration-150', 'ease-in-out', 'hover:scale-105');
+                mealDiv.classList.add('border', 'p-4', 'mb-4', 'rounded', 'shadow', 'cursor-pointer', 'hover:bg-blue-200', 'active:scale-95', 'transition', 'duration-150', 'ease-in-out', 'hover:scale-99');
                 mealDiv.style.display = 'flex';
                 mealDiv.style.justifyContent = 'space-between';
                 mealDiv.style.alignItems = 'center';
@@ -47,7 +52,7 @@
                 recipeImg.style.width = '4em';
                 recipeImg.classList.add('border', 'rounded');
                 mealDiv.appendChild(recipeImg);
-                
+
                 multiResultsDiv.appendChild(mealDiv);
 
                 mealDiv.addEventListener('click', () => displayRecipe(meal, multiResultsDiv));
@@ -60,7 +65,7 @@
     function displayRecipe(meal, multiResultsDiv = null) {
 
         if (multiResultsDiv) {
-            const backButton = document.querySelector('#back-button');
+            
             backButton.textContent = 'Back to Results';
             backButton.classList.add('bg-gray-500', 'text-white', 'p-2', 'rounded', 'hover:bg-gray-600', 'active:bg-gray-700', 'active:scale-95', 'transition', 'duration-150', 'cursor-pointer');
             backButton.addEventListener('click', () => {
@@ -68,7 +73,7 @@
                 recipeResultsDiv.appendChild(multiResultsDiv);
                 backButton.classList.add('hidden');
             });
-           backButton.classList.remove('hidden');
+            backButton.classList.remove('hidden');
         }
 
 
