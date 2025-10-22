@@ -12,8 +12,8 @@
     document.getElementById('search-button').addEventListener('click', async function (e) {
         e.preventDefault();
         window.scrollTo(0, 0);
-        if(backButton.classList.contains('hidden') === false) {
-            backButton.classList.add('hidden');
+        if(backButton.classList.contains('invisible') === false) {
+            backButton.classList.add('invisible');
         }
         let recipeObject;
         try {
@@ -72,9 +72,9 @@
                 recipeResultsDiv.innerHTML = '';
                 displayMessage('Multiple recipes found. Please select one:');
                 recipeResultsDiv.appendChild(multiResultsDiv);
-                backButton.classList.add('hidden');
+                backButton.classList.add('invisible');
             });
-            backButton.classList.remove('hidden');
+            backButton.classList.remove('invisible');
         }
 
 
