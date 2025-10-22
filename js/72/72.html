@@ -8,8 +8,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <style>
             body {
-                font-family: Arial, sans-serif;
-                xmargin: 20px;
+
                 background-color: #f4f4f4;
                 color: #333;
                 display: flex;
@@ -32,35 +31,36 @@
     </head>
 
     <body>
-    <header
-        class="fixed top-0 left-0 w-full bg-white shadow z-50 flex items-center justify-between px-4 py-2 border-b-4 border-gray-300">
-    
-      
-        <div class="flex-none w-32 flex justify-start">
-            <button id="back-button" class="invisible bg-gray-500 text-white p-2 rounded hover:bg-gray-600">
-                Back to Results
-            </button>
-        </div>
-    
-        <div class="flex-1 flex flex-col items-center text-center">
-            <h1 class="text-xl font-bold">Welcome to the Recipe App</h1>
-            <p>Find delicious recipes!</p>
-            <form id="recipe-form" class="flex flex-wrap justify-center mt-2">
-                <input type="text" id="recipe-input" placeholder="Enter recipe name" class="border p-2 mr-2 rounded">
-                <button id="search-button" type="submit"
-                    class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 active:bg-blue-700 active:scale-95 transition duration-150 cursor-pointer">
-                    Search
+        <header
+            class="fixed top-0 left-0 w-full bg-white shadow z-50 flex items-center justify-between px-4 py-2 border-b-4 border-gray-300">
+
+
+            <div class="flex-none w-32 flex justify-start">
+                <button id="back-button" class="invisible bg-gray-500 text-white p-2 rounded hover:bg-gray-600">
+                    Back to Results
                 </button>
-            </form>
-        </div>
-    
-        <div class="flex-none w-32"></div>
-    
-    </header>
+            </div>
+
+            <div class="flex-1 flex flex-col items-center text-center">
+                <h1 class="text-xl font-bold">Welcome to the Recipe App</h1>
+                <p>Find delicious recipes!</p>
+                <form id="recipe-form" class="flex flex-wrap justify-center mt-2">
+                    <input type="text" id="recipe-input" placeholder="Enter recipe name"
+                        class="border p-2 mr-2 rounded">
+                    <button id="search-button" type="submit"
+                        class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 active:bg-blue-700 active:scale-95 transition duration-150 cursor-pointer">
+                        Search
+                    </button>
+                </form>
+            </div>
+
+            <div class="flex-none w-32"></div>
+
+        </header>
 
         <div id="recipe-results" class="w-full max-w-full mx-auto mt-45 md:mt-30  p-4"></div>
         <script src="72.js"></script>
-    
+
 
     </body>
 
