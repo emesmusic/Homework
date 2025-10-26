@@ -65,14 +65,14 @@
 
                 multipleVideoResultsDiv.appendChild(singleVideoResultDiv);
 
-                singleVideoResultDiv.addEventListener('click', () => displayRecipe(result.video, multipleVideoResultsDiv));
+                singleVideoResultDiv.addEventListener('click', () => displayVideo(result.video, multipleVideoResultsDiv));
                 displayDiv.appendChild(multipleVideoResultsDiv);
             });
         }
     });
 
 
-    async function displayRecipe(video, multipleVideoResultsDiv = null) {
+    async function displayVideo(video, multipleVideoResultsDiv = null) {
 
         if (multipleVideoResultsDiv) {
 
@@ -90,13 +90,13 @@
 
         displayDiv.innerHTML = '';
         const videoDiv = document.createElement('div');
-        videoDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'grid', 'gap-4', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'justify-items-center');
+        videoDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'grid', 'gap-4', 'grid-cols-1', 'md:grid-cols-2', '[grid-template-rows:auto_1fr]');
         const titleDiv = document.createElement('div');
         const title = document.createElement('h2');
-        title.classList.add('text-2xl', 'font-bold', 'text-center');
+        title.classList.add('text-2xl', 'font-bold', 'text-center', 'self-start');
         title.textContent = video.title;
         titleDiv.appendChild(title);
-        titleDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full', 'col-start-1', 'flex', 'justify-center', 'items-center');
+        titleDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full', 'col-start-1','row-start-1', 'flex', 'justify-center', 'items-center');
 
 
         const descriptionDiv = document.createElement('div');
@@ -125,11 +125,11 @@
         description.textContent = `${descriptionData.description}` || 'No description available.';
 
 
-        description.classList.add('whitespace-pre-line', 'mb-4');
+        description.classList.add('whitespace-pre-line', 'mb-4', 'overflow-y-auto', 'max-h-[60vh]');
         descriptionDiv.appendChild(description);
 
         
-        descriptionDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full');
+        descriptionDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full', 'col-start-2', 'md:row-start-1', 'md:row-span-2');
 
        
         let ytEmbedDiv;
@@ -143,7 +143,7 @@
                 ytEmbed.width = '100%';
                 ytEmbed.height = '315';
                 ytEmbed.allowFullscreen = true;
-                ytEmbedDiv.classList.add('border', 'rounded', 'shadow', 'w-full', 'hidden', 'md:block', 'order-4', 'flex', 'justify-center', 'items-center', 'md:col-span-2', 'lg:col-span-1', 'flex', 'justify-center', 'items-center');
+                ytEmbedDiv.classList.add('border', 'rounded', 'shadow', 'w-full', 'justify-center', 'items-center', 'col-start-1', 'md:row-start-2');
                 ytEmbedDiv.appendChild(ytEmbed);
             
         }
