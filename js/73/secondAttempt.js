@@ -16,7 +16,7 @@
         }
         window.scrollTo(0, 0);
         backButton.classList.add('invisible');
-displayDiv.innerHTML = '';
+        displayDiv.innerHTML = '';
         let videosObject;
 
         const options = {
@@ -133,7 +133,7 @@ displayDiv.innerHTML = '';
         descriptionDiv.appendChild(description);
 
 
-        descriptionDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full', 'col-start-2', 'md:row-start-1', 'md:row-span-2');
+        descriptionDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full', 'md:col-start-2', 'md:row-start-1', 'md:row-span-2');
 
 
         let ytEmbedDiv;
@@ -148,7 +148,7 @@ displayDiv.innerHTML = '';
             ytEmbed.height = '315';
             ytEmbed.allow = 'autoplay; encrypted-media';
             ytEmbed.allowFullscreen = true;
-            ytEmbedDiv.classList.add('border', 'rounded', 'shadow', 'w-full', 'justify-center', 'items-center', 'col-start-1', 'md:row-start-2');
+            ytEmbedDiv.classList.add('border', 'rounded', 'shadow', 'w-full', 'justify-center', 'items-center', 'col-start-1', 'md:row-start-2', 'min-h-[50vh]', 'md:min-h-[60vh]');
             ytEmbedDiv.appendChild(ytEmbed);
 
         }
