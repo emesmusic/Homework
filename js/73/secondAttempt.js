@@ -10,13 +10,13 @@
 
     document.getElementById('search-button').addEventListener('click', async function (e) {
         e.preventDefault();
-        if(document.getElementById('video-search-box').value.trim() === '') {
+        if (document.getElementById('video-search-box').value.trim() === '') {
             displayMessage('Please enter a search term.');
             return;
         }
         window.scrollTo(0, 0);
         backButton.classList.add('invisible');
-
+displayDiv.innerHTML = '';
         let videosObject;
 
         const options = {
@@ -48,18 +48,20 @@
 
         else {
             const multipleVideoResultsDiv = document.createElement('div');
+            multipleVideoResultsDiv.classList.add('grid', 'gap-4', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'flex-wrap');
             videosObject.contents.forEach(result => {
                 if (result.type !== 'video') return;
+
                 const singleVideoResultDiv = document.createElement('div');
                 singleVideoResultDiv.classList.add('border', 'p-4', 'mb-4', 'rounded', 'shadow',
                     'cursor-pointer', 'hover:bg-blue-200', 'active:scale-95', 'transition',
-                    'duration-150', 'ease-in-out', 'hover:scale-99', 'flex-col', 'justify-center', 'items-center');
+                    'duration-150', 'ease-in-out', 'hover:scale-99', 'flex-col', 'justify-center', 'items-center', 'text-justify', 'text-lg', 'font-bold');
 
                 singleVideoResultDiv.innerText = `${result.video.title}`;
                 const thumbnail = document.createElement('img');
                 thumbnail.src = result.video.thumbnails[0].url || 'images/placeholder.jpg';
                 thumbnail.alt = `Picture of: ${result.video.title}`;
-                thumbnail.style.width = '4em';
+                thumbnail.style.width = '100%';
                 thumbnail.classList.add('border', 'rounded');
                 singleVideoResultDiv.appendChild(thumbnail);
 
@@ -96,7 +98,7 @@
         title.classList.add('text-2xl', 'font-bold', 'text-center', 'self-start');
         title.textContent = video.title;
         titleDiv.appendChild(title);
-        titleDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full', 'col-start-1','row-start-1', 'flex', 'justify-center', 'items-center');
+        titleDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full', 'col-start-1', 'row-start-1', 'flex', 'justify-center', 'items-center');
 
 
         const descriptionDiv = document.createElement('div');
@@ -115,12 +117,14 @@
         };
         let descriptionData;
         try {
+            //2nd api call to another api since I'm not using the official youtube api (since you have to make a google developer thing
+            //to get an api key) and the original api I used, while great at search, doesn't provide video description.
             const response = await fetch(`https://yt-api.p.rapidapi.com/video/info?id=${video.videoId}`, options);
             descriptionData = await response.json();
             console.log(descriptionData);
         } catch (error) {
             console.error(error);
-            description.textContent = 'Error fetching video description.';
+            description.textContent = `Error fetching video description. ${error.message}`;
         }
         description.textContent = `${descriptionData.description}` || 'No description available.';
 
@@ -128,32 +132,33 @@
         description.classList.add('whitespace-pre-line', 'mb-4', 'overflow-y-auto', 'max-h-[60vh]');
         descriptionDiv.appendChild(description);
 
-        
+
         descriptionDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'w-full', 'col-start-2', 'md:row-start-1', 'md:row-span-2');
 
-       
+
         let ytEmbedDiv;
         if (video.videoId) {
 
-            
-                ytEmbedDiv = document.createElement('div');
-                const ytEmbed = document.createElement('iframe');
-                ytEmbed.classList.add('rounded', 'shadow', 'w-full', 'h-full');
-                ytEmbed.src = `https://www.youtube.com/embed/${video.videoId}`;
-                ytEmbed.width = '100%';
-                ytEmbed.height = '315';
-                ytEmbed.allowFullscreen = true;
-                ytEmbedDiv.classList.add('border', 'rounded', 'shadow', 'w-full', 'justify-center', 'items-center', 'col-start-1', 'md:row-start-2');
-                ytEmbedDiv.appendChild(ytEmbed);
-            
+
+            ytEmbedDiv = document.createElement('div');
+            const ytEmbed = document.createElement('iframe');
+            ytEmbed.classList.add('rounded', 'shadow', 'w-full', 'h-full');
+            ytEmbed.src = `https://www.youtube.com/embed/${video.videoId}?autoplay=1`;
+            ytEmbed.width = '100%';
+            ytEmbed.height = '315';
+            ytEmbed.allow = 'autoplay; encrypted-media';
+            ytEmbed.allowFullscreen = true;
+            ytEmbedDiv.classList.add('border', 'rounded', 'shadow', 'w-full', 'justify-center', 'items-center', 'col-start-1', 'md:row-start-2');
+            ytEmbedDiv.appendChild(ytEmbed);
+
         }
 
 
         videoDiv.appendChild(titleDiv);
-        
+
         videoDiv.appendChild(ytEmbedDiv);
         videoDiv.appendChild(descriptionDiv);
-    
+
         displayDiv.appendChild(videoDiv);
 
 
