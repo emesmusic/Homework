@@ -5,18 +5,35 @@
     const messageDiv = document.createElement('div');
     const backButton = document.querySelector('#back-button');
     messageDiv.classList.add('font-bold', 'mb-2', 'text-center');
+    let currentVideo;
+
+    backButton.classList.add('bg-gray-500', 'text-white', 'p-2', 'rounded', 'hover:bg-gray-600', 'active:bg-gray-700', 'active:scale-95', 'transition', 'duration-150', 'cursor-pointer');
 
 
 
-    document.getElementById('search-button').addEventListener('click', async function (e) {
-        e.preventDefault();
-        if (document.getElementById('video-search-box').value.trim() === '') {
+
+
+    document.getElementById('search-button').addEventListener('click', (e) => videoSearch(document.getElementById('video-search-box').value.trim(), currentVideo ? currentVideo : null, e));
+
+
+
+    async function videoSearch(searchValue, video, e = null) {
+        e?.preventDefault();
+        if (searchValue === '') {
             displayMessage('Please enter a search term.');
             return;
         }
         window.scrollTo(0, 0);
-        backButton.classList.add('invisible');
+
+
+        backButton.textContent = 'Back to Video';
+        backButton.onclick = () => displayVideo(video, searchValue);
+
+
+
         displayDiv.innerHTML = '';
+
+
         let videosObject;
 
         const options = {
@@ -66,27 +83,26 @@
                 singleVideoResultDiv.appendChild(thumbnail);
 
                 multipleVideoResultsDiv.appendChild(singleVideoResultDiv);
-
-                singleVideoResultDiv.addEventListener('click', () => displayVideo(result.video, multipleVideoResultsDiv));
+                currentVideo = result.video;
+                singleVideoResultDiv.addEventListener('click', () => displayVideo(currentVideo, searchValue));
                 displayDiv.appendChild(multipleVideoResultsDiv);
             });
         }
-    });
+    }
 
 
-    async function displayVideo(video, multipleVideoResultsDiv = null) {
 
-        if (multipleVideoResultsDiv) {
 
-            backButton.textContent = 'Back to Results';
-            backButton.classList.add('bg-gray-500', 'text-white', 'p-2', 'rounded', 'hover:bg-gray-600', 'active:bg-gray-700', 'active:scale-95', 'transition', 'duration-150', 'cursor-pointer');
-            backButton.addEventListener('click', () => {
-                displayDiv.innerHTML = '';
-                displayDiv.appendChild(multipleVideoResultsDiv);
-                backButton.classList.add('invisible');
-            });
-            backButton.classList.remove('invisible');
-        }
+
+
+
+
+
+    async function displayVideo(video, searchValue) {
+        backButton.classList.remove('invisible');
+
+        backButton.textContent = 'Back to Results';
+        backButton.onclick = () => videoSearch(searchValue, video);
 
 
 
