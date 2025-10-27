@@ -119,7 +119,7 @@
 
         const descriptionDiv = document.createElement('div');
         const channelHeading = document.createElement('h3');
-        channelHeading.textContent = `Channel: ${video.author.title}\n Views: ${video.stats.views.toLocaleString()}`;
+        channelHeading.textContent = `Video views: ${video.stats.views.toLocaleString()}\nChannel: ${video.author.title}`;
         channelHeading.classList.add('whitespace-pre-line', 'text-lg', 'font-semibold', 'mb-2', 'text-center', 'border', 'p-4', 'rounded', 'shadow', 'w-full');
         descriptionDiv.appendChild(channelHeading);
         const description = document.createElement('p');
