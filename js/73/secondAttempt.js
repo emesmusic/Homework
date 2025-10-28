@@ -1,11 +1,24 @@
 'use strict';
 (function () {
 
+    //I hope you saw this. I've run out of free api calls
+
     let displayDiv = document.getElementById('video-results');
     const messageDiv = document.createElement('div');
     const backButton = document.querySelector('#back-button');
     messageDiv.classList.add('font-bold', 'mb-2', 'text-center');
     let currentVideo;
+    const loadingDiv = document.createElement('div');
+    const loadingImg = document.createElement('img');
+    loadingImg.src = 'images/loading.gif';
+    loadingImg.style.display = 'block';
+    loadingImg.style.margin = '0 auto';
+    loadingDiv.style.textAlign = 'center';
+
+
+
+    loadingDiv.appendChild(loadingImg);
+
 
     backButton.classList.add('bg-gray-500', 'text-white', 'p-2', 'rounded', 'hover:bg-gray-600', 'active:bg-gray-700', 'active:scale-95', 'transition', 'duration-150', 'cursor-pointer');
 
@@ -25,13 +38,13 @@
         }
         window.scrollTo(0, 0);
 
-
+        loading();
         backButton.textContent = 'Back to Video';
         backButton.onclick = () => displayVideo(video, searchValue);
 
 
 
-        displayDiv.innerHTML = '';
+
 
 
         let videosObject;
@@ -59,6 +72,7 @@
             return;
         }
 
+
         if (videosObject.contents === null || videosObject.contents.length === 0) {
             displayMessage('No videos found. Please try another search.');
         }
@@ -85,6 +99,7 @@
                 multipleVideoResultsDiv.appendChild(singleVideoResultDiv);
                 currentVideo = result.video;
                 singleVideoResultDiv.addEventListener('click', () => displayVideo(currentVideo, searchValue));
+                displayDiv.innerHTML = '';
                 displayDiv.appendChild(multipleVideoResultsDiv);
             });
         }
@@ -100,13 +115,13 @@
 
     async function displayVideo(video, searchValue) {
         backButton.classList.remove('invisible');
-
+        loading();
         backButton.textContent = 'Back to Results';
         backButton.onclick = () => videoSearch(searchValue, video);
 
 
 
-        displayDiv.innerHTML = '';
+
         const videoDiv = document.createElement('div');
         videoDiv.classList.add('border', 'p-4', 'rounded', 'shadow', 'grid', 'gap-4', 'grid-cols-1', 'md:grid-cols-2', '[grid-template-rows:auto_1fr]');
         const titleDiv = document.createElement('div');
@@ -175,6 +190,8 @@
         videoDiv.appendChild(ytEmbedDiv);
         videoDiv.appendChild(descriptionDiv);
 
+
+        displayDiv.innerHTML = '';
         displayDiv.appendChild(videoDiv);
 
 
@@ -187,5 +204,12 @@
         messageDiv.textContent = message;
         displayDiv.appendChild(messageDiv);
     }
+
+    function loading() {
+        displayDiv.innerHTML = '';
+        displayDiv.appendChild(loadingDiv);
+    }
+
+
 
 })();
