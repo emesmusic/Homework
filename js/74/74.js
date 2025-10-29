@@ -120,6 +120,15 @@
                 // marker.sidebarListItem.querySelector('#sidebarImage').classList.add('border');
             });
 
+            marker.addEventListener('mouseenter', () => {
+                marker.zIndex = ++zIndex;
+            });
+
+            marker.addEventListener('mouseleave', () => {
+               
+                marker.zIndex = 'auto';
+            });
+
             infoWindow.addListener("closeclick", () => {
 
                 marker.content.classList.remove('border-blue-500', 'scale-150');
