@@ -24,7 +24,7 @@
 
     document.getElementById('search-button').addEventListener('click', async (e) => {
         e.preventDefault();
-        if (document.getElementById('search-box').value === '' || null) {
+        if (!document.getElementById('search-box').value || document.getElementById('search-box').value.trim() === '') {
             document.getElementById('message').textContent = 'Please enter a search term!';
             document.getElementById('message').classList.add('text-red-500');
             return;
@@ -56,7 +56,7 @@
 
         if (firstSearch) {
             firstSearch = false;
-            displayDiv.insertAdjacentHTML('afterbegin', `<aside class="sidebar bg-white shadow px-4 py-2 border-r-5 border-gray-300 overflow-y-auto">
+            displayDiv.insertAdjacentHTML('afterbegin', `<aside class="sidebar bg-white shadow px-4 py-2 border-r-4 border-gray-400 xborder-black overflow-y-auto">
                 <ul id="sidebar-list"></ul>
             </aside>`);
             displayDiv.style.display = 'grid';
@@ -102,32 +102,33 @@
             marker.addListener("click", () => {
                 openInfoWindow?.close();
                 openInfoWindow?.marker?.sidebarListItem?.classList.remove('scale-95', 'ease-in-out', 'bg-blue-200');
-                openInfoWindow?.marker?.sidebarListItem?.classList.add('text-gray-400', 'hover:text-black', 'xbg-gray-100');
+                openInfoWindow?.marker?.sidebarListItem?.classList.add('text-gray-400', 'hover:text-black', 'hover:border-gray-400', 'border-gray-200');
                 const sidebarImage = openInfoWindow?.marker?.sidebarListItem?.querySelector('#sidebarImage');
-                sidebarImage?.classList.add('grayscale');
+                sidebarImage?.classList.add('grayscale', 'group-hover:grayscale-0', 'border-gray-400', 'group-hover:border-black', 'opacity-50', 'group-hover:opacity-100');
+                //sidebarImage?.classList.remove('border');
                 openInfoWindow = infoWindow;
-                
+
                 infoWindow.open({ map, anchor: marker });
                 marker.zIndex = ++zIndex;
                 marker.sidebarListItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 marker.sidebarListItem.classList.add('scale-95', 'ease-in-out', 'bg-blue-200');
-                marker.sidebarListItem.classList.remove('text-gray-400');
-                marker.sidebarListItem.querySelector('#sidebarImage').classList.remove('grayscale');
-
+                marker.sidebarListItem.classList.remove('text-gray-400', 'border-gray-200');
+                marker.sidebarListItem.querySelector('#sidebarImage').classList.remove('grayscale', 'opacity-50', 'border-gray-400');
+               // marker.sidebarListItem.querySelector('#sidebarImage').classList.add('border');
 
 
             });
 
             const sidebarListItem = document.createElement('li');
 
-            sidebarListItem.classList.add('border-4', 'border-gray-300', 'p-4', 'mb-4', 'rounded', 'shadow',
+            sidebarListItem.classList.add('border-4', 'border-gray-400', 'p-4', 'mb-4', 'rounded-[10px]', 'shadow',
                 'cursor-pointer', 'hover:bg-blue-200', 'active:scale-95',
                 'transition', 'duration-150', 'ease-in-out', 'hover:scale-95',
                 'flex', 'flex-col', 'justify-center', 'items-center',
-                'text-left', 'text-sm', 'xfont-bold');
-            sidebarListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id="sidebarImage" style="display:inline; margin-bottom:1rem; border-radius:10px; border:1px solid black; max-width:120px; max-height:75px">
-                <h3 style="display:inline;font-size:1rem; margin-left:1rem; padding:0; font-weight:bold">${result.title}</h3>` +/*<p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>*/
-                `<a href="http://${result.wikipediaUrl}" target="_blank" style="margin-top:1rem; display:block" class="link">Open Wikipedia Page</a>`;
+                'text-left', 'text-sm', 'group', 'xfont-bold');
+            sidebarListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id="sidebarImage" class="rounded-[10px] border border-black" style="display:inline; margin-bottom:1rem; xborder-radius:10px; xborder:1px solid black; max-width:120px; max-height:75px">
+                <h3 style="display:inline;font-size:1rem; padding:0; font-weight:bold">${result.title}</h3>` +/*<p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>*/
+                `<a href="http://${result.wikipediaUrl}" target="_blank" style="display:block" class="link">Open Wikipedia Page</a>`;
 
 
             /*const sidebarListItemImage = document.createElement('img');
@@ -150,7 +151,7 @@
 
 
         });
-        //document.querySelector('a').addEventListener('click', (e) => e.stopPropagation());
+        document.querySelector('a').addEventListener('click', (e) => e.stopPropagation());
         map.fitBounds(bounds);
 
 
