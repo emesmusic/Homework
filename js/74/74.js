@@ -104,20 +104,20 @@
                 img.classList.add('border-blue-500', 'scale-150');
                 openInfoWindow?.close();
                 openInfoWindow?.marker?.content?.classList.remove('border-blue-500', 'scale-150');
-                openInfoWindow?.marker?.sidebarListItem?.classList.remove('scale-95', 'ease-in-out', 'bg-blue-200');
-                openInfoWindow?.marker?.sidebarListItem?.classList.add('text-gray-400', 'hover:text-black', 'hover:border-gray-400', 'border-gray-200');
+                openInfoWindow?.marker?.sidebarListItem?.classList.remove('scale-95', 'ease-in-out', 'bg-blue-200', 'border-blue-500');
+                openInfoWindow?.marker?.sidebarListItem?.classList.add('text-gray-400', 'hover:text-black', 'hover:border-blue-500', 'border-gray-200');
                 const sidebarImage = openInfoWindow?.marker?.sidebarListItem?.querySelector('#sidebarImage');
                 sidebarImage?.classList.add('grayscale', 'group-hover:grayscale-0', 'border-gray-400', 'group-hover:border-black', 'opacity-50', 'group-hover:opacity-100');
-                //sidebarImage?.classList.remove('border');
+
                 openInfoWindow = infoWindow;
 
                 infoWindow.open({ map, anchor: marker });
                 marker.zIndex = ++zIndex;
                 marker.sidebarListItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                marker.sidebarListItem.classList.add('scale-95', 'ease-in-out', 'bg-blue-200');
+                marker.sidebarListItem.classList.add('scale-95', 'ease-in-out', 'bg-blue-200', 'border-blue-500');
                 marker.sidebarListItem.classList.remove('text-gray-400', 'border-gray-200');
                 marker.sidebarListItem.querySelector('#sidebarImage').classList.remove('grayscale', 'opacity-50', 'border-gray-400');
-                // marker.sidebarListItem.querySelector('#sidebarImage').classList.add('border');
+
             });
 
             marker.addEventListener('mouseenter', () => {
@@ -125,7 +125,7 @@
             });
 
             marker.addEventListener('mouseleave', () => {
-               
+
                 marker.zIndex = 'auto';
             });
 
@@ -147,7 +147,7 @@
                 'cursor-pointer', 'hover:bg-blue-200', 'active:scale-95',
                 'transition', 'duration-150', 'ease-in-out', 'hover:scale-95',
                 'flex', 'flex-col', 'justify-center', 'items-center',
-                'text-center', 'text-sm', 'group', 'xfont-bold', 'h-25');
+                'text-center', 'text-sm', 'group', 'xfont-bold', 'h-25', 'hover:border-blue-500');
             sidebarListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id="sidebarImage" class="rounded-[10px] border border-black" style="display:inline; margin-bottom:1rem; xborder-radius:10px; xborder:1px solid black; max-width:120px; max-height:75px">
                 <h3 style="display:inline;font-size:1rem; padding:0; font-weight:bold">${result.title}</h3>` +/*<p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>*/
                 `<a href="https://${result.wikipediaUrl}" target="_blank" style="display:block" class="link">Open Wikipedia Page</a>`;
