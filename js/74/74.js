@@ -76,9 +76,9 @@
             const img = document.createElement('img');
             img.style.width = '4rem';
             img.style.height = '3rem';
-
-            img.style.border = '1px solid black';
-            img.style.borderRadius = '10px';
+            img.classList.add('rounded-[10px]', 'border-4', 'border-black', 'hover:scale-150', 'hover:border-blue-500');
+            //img.style.border = '1px solid black';
+            //img.style.borderRadius = '10px';
             img.src = result.thumbnailImg || 'images/placeholder.jpg';
 
             bounds.extend({ lat: result.lat, lng: result.lng });
@@ -101,7 +101,9 @@
 
 
             marker.addListener("click", () => {
+                img.classList.add('border-blue-500', 'scale-150');
                 openInfoWindow?.close();
+                openInfoWindow?.marker?.content?.classList.remove('border-blue-500', 'scale-150');
                 openInfoWindow?.marker?.sidebarListItem?.classList.remove('scale-95', 'ease-in-out', 'bg-blue-200');
                 openInfoWindow?.marker?.sidebarListItem?.classList.add('text-gray-400', 'hover:text-black', 'hover:border-gray-400', 'border-gray-200');
                 const sidebarImage = openInfoWindow?.marker?.sidebarListItem?.querySelector('#sidebarImage');
