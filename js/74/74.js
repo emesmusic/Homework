@@ -98,15 +98,23 @@
             });
             infoWindow.marker = marker;
 
-            
+
             marker.addListener("click", () => {
                 openInfoWindow?.close();
                 openInfoWindow?.marker?.sidebarListItem?.classList.remove('scale-95', 'ease-in-out', 'bg-blue-200');
+                openInfoWindow?.marker?.sidebarListItem?.classList.add('text-gray-400', 'hover:text-black', 'xbg-gray-100');
+                const sidebarImage = openInfoWindow?.marker?.sidebarListItem?.querySelector('#sidebarImage');
+                sidebarImage?.classList.add('grayscale');
                 openInfoWindow = infoWindow;
+                
                 infoWindow.open({ map, anchor: marker });
                 marker.zIndex = ++zIndex;
-                marker.sidebarListItem.scrollIntoView({ behavior: 'smooth', block: 'center'});
+                marker.sidebarListItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 marker.sidebarListItem.classList.add('scale-95', 'ease-in-out', 'bg-blue-200');
+                marker.sidebarListItem.classList.remove('text-gray-400');
+                marker.sidebarListItem.querySelector('#sidebarImage').classList.remove('grayscale');
+
+
 
             });
 
@@ -117,9 +125,10 @@
                 'transition', 'duration-150', 'ease-in-out', 'hover:scale-95',
                 'flex', 'flex-col', 'justify-center', 'items-center',
                 'text-left', 'text-sm', 'xfont-bold');
-            sidebarListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" style="display:inline; margin-bottom:1rem; border-radius:10px; border:1px solid black; max-width:120px; max-height:75px">
-                <h3 style="display:inline;font-size:20px; margin-left:1rem; padding:0; font-weight:bold">${result.title}</h3><p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>
-                <a href="http://${result.wikipediaUrl}" target="_blank" style="margin-top:1rem; display:block" class="link">Open Wikipedia Page</a>`;
+            sidebarListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id="sidebarImage" style="display:inline; margin-bottom:1rem; border-radius:10px; border:1px solid black; max-width:120px; max-height:75px">
+                <h3 style="display:inline;font-size:1rem; margin-left:1rem; padding:0; font-weight:bold">${result.title}</h3>` +/*<p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>*/
+                `<a href="http://${result.wikipediaUrl}" target="_blank" style="margin-top:1rem; display:block" class="link">Open Wikipedia Page</a>`;
+
 
             /*const sidebarListItemImage = document.createElement('img');
             sidebarListItemImage.src = result.thumbnailImg || 'images/placeholder.jpg';
@@ -141,6 +150,7 @@
 
 
         });
+        //document.querySelector('a').addEventListener('click', (e) => e.stopPropagation());
         map.fitBounds(bounds);
 
 
@@ -151,31 +161,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     function clearMarkers() {
-        markers.forEach(marker =>  marker.map = null);
+        markers.forEach(marker => marker.map = null);
         markers = [];
     }
-
-
-
-
-
-
 
 
 })();
