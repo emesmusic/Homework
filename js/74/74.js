@@ -32,7 +32,7 @@
 
         let wikipediaResults;
         try {
-            const response = await fetch(`http://api.geonames.org/wikipediaSearchJSON?q=${document.getElementById('search-box').value}&username=${apiKeys.geonames}&maxRows=${document.getElementById('results-number').value}`);
+            const response = await fetch(`https://api.geonames.org/wikipediaSearchJSON?q=${document.getElementById('search-box').value}&username=${apiKeys.geonames}&maxRows=${document.getElementById('results-number').value}`);
             if (!response.ok) {
                 throw new Error(`${response.status} - ${response.statusText}`);
             }
@@ -93,7 +93,7 @@
             const infoWindow = new google.maps.InfoWindow({
                 content: `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" style="display:inline; margin-bottom:1rem; border-radius:10px; border:1px solid black; max-width:120px; max-height:75px">
                 <h3 style="display:inline;font-size:20px; margin-left:1rem; padding:0; font-weight:bold">${result.title}</h3><p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>
-                <a href="http://${result.wikipediaUrl}" target="_blank" style="margin-top:1rem; display:block" class="link">Open Wikipedia Page</a>`
+                <a href="https://${result.wikipediaUrl}" target="_blank" style="margin-top:1rem; display:block" class="link">Open Wikipedia Page</a>`
 
             });
             infoWindow.marker = marker;
@@ -128,7 +128,7 @@
                 'text-left', 'text-sm', 'group', 'xfont-bold');
             sidebarListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id="sidebarImage" class="rounded-[10px] border border-black" style="display:inline; margin-bottom:1rem; xborder-radius:10px; xborder:1px solid black; max-width:120px; max-height:75px">
                 <h3 style="display:inline;font-size:1rem; padding:0; font-weight:bold">${result.title}</h3>` +/*<p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>*/
-                `<a href="http://${result.wikipediaUrl}" target="_blank" style="display:block" class="link">Open Wikipedia Page</a>`;
+                `<a href="https://${result.wikipediaUrl}" target="_blank" style="display:block" class="link">Open Wikipedia Page</a>`;
 
 
             /*const sidebarListItemImage = document.createElement('img');
