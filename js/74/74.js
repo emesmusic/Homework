@@ -67,7 +67,7 @@
             clearMarkers();
         }
 
-        document.querySelector('#search-box').textContent = '';
+        document.querySelector('#search-box').value = '';
 
         sidebarList.innerHTML = '';
         const bounds = new google.maps.LatLngBounds();
