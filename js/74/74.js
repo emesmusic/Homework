@@ -126,7 +126,7 @@
                 'cursor-pointer', 'hover:bg-blue-200', 'active:scale-95',
                 'transition', 'duration-150', 'ease-in-out', 'hover:scale-95',
                 'flex', 'flex-col', 'justify-center', 'items-center',
-                'text-left', 'text-sm', 'group', 'xfont-bold');
+                'text-center', 'text-sm', 'group', 'xfont-bold', 'h-25');
             sidebarListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id="sidebarImage" class="rounded-[10px] border border-black" style="display:inline; margin-bottom:1rem; xborder-radius:10px; xborder:1px solid black; max-width:120px; max-height:75px">
                 <h3 style="display:inline;font-size:1rem; padding:0; font-weight:bold">${result.title}</h3>` +/*<p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>*/
                 `<a href="https://${result.wikipediaUrl}" target="_blank" style="display:block" class="link">Open Wikipedia Page</a>`;
