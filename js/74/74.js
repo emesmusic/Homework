@@ -118,6 +118,16 @@
                 marker.sidebarListItem.classList.remove('text-gray-400', 'border-gray-200');
                 marker.sidebarListItem.querySelector('#sidebarImage').classList.remove('grayscale', 'opacity-50', 'border-gray-400');
                 // marker.sidebarListItem.querySelector('#sidebarImage').classList.add('border');
+            });
+
+            marker.addListener("closeclick", () => {
+
+                marker.content.classList.remove('border-blue-500', 'scale-150');
+                marker.sidebarListItem.classList.remove('scale-95', 'ease-in-out', 'bg-blue-200');
+                marker.sidebarListItem.classList.add('text-gray-400', 'hover:text-black', 'hover:border-gray-400', 'border-gray-200');
+                const sidebarImage = marker.sidebarListItem.querySelector('#sidebarImage');
+                sidebarImage.classList.add('grayscale', 'group-hover:grayscale-0', 'border-gray-400', 'group-hover:border-black', 'opacity-50', 'group-hover:opacity-100');
+
 
 
             });
@@ -154,7 +164,8 @@
 
 
         });
-        document.querySelector('a').addEventListener('click', (e) => e.stopPropagation());
+        document.querySelectorAll('a').forEach(link => link.addEventListener('click', (e) => e.stopPropagation()));
+
         map.fitBounds(bounds);
 
 
