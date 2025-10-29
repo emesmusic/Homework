@@ -120,7 +120,7 @@
                 // marker.sidebarListItem.querySelector('#sidebarImage').classList.add('border');
             });
 
-            marker.addListener("closeclick", () => {
+            infoWindow.addListener("closeclick", () => {
 
                 marker.content.classList.remove('border-blue-500', 'scale-150');
                 marker.sidebarListItem.classList.remove('scale-95', 'ease-in-out', 'bg-blue-200');
