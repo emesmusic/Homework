@@ -32,7 +32,7 @@
 
         let wikipediaResults;
         try {
-            const response = await fetch(`https://api.geonames.org/wikipediaSearchJSON?q=${document.getElementById('search-box').value}&username=${apiKeys.geonames}&maxRows=${document.getElementById('results-number').value}`);
+            const response = await fetch(`http://api.geonames.org/wikipediaSearchJSON?q=${document.getElementById('search-box').value}&username=${apiKeys.geonames}&maxRows=${document.getElementById('results-number').value}`);
             if (!response.ok) {
                 throw new Error(`${response.status} - ${response.statusText}`);
             }
@@ -67,6 +67,7 @@
             clearMarkers();
         }
 
+        document.querySelector('#search-box').textContent = '';
 
         sidebarList.innerHTML = '';
         const bounds = new google.maps.LatLngBounds();
@@ -114,7 +115,7 @@
                 marker.sidebarListItem.classList.add('scale-95', 'ease-in-out', 'bg-blue-200');
                 marker.sidebarListItem.classList.remove('text-gray-400', 'border-gray-200');
                 marker.sidebarListItem.querySelector('#sidebarImage').classList.remove('grayscale', 'opacity-50', 'border-gray-400');
-               // marker.sidebarListItem.querySelector('#sidebarImage').classList.add('border');
+                // marker.sidebarListItem.querySelector('#sidebarImage').classList.add('border');
 
 
             });
