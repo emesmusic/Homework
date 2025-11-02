@@ -169,6 +169,12 @@
 
                 }
 
+
+                
+
+
+
+
                 openMarker = marker;
 
                 marker.previousZIndex = marker.zIndex;
@@ -194,7 +200,7 @@
 
 
 
-
+                
             });
             marker.previousZIndex = marker.zIndex;
             marker.addEventListener('mouseenter', () => {
@@ -288,9 +294,9 @@
 
                         favoritesList = document.createElement('aside');
                         favoritesList.classList.add('bg-white', 'shadow', 'xpx-4', 'py-2', 'border-l-4', 'border-gray-400', 'xborder-black', 'overflow-y-auto');
-                        favoritesList.innerHTML = ` <h2 class="font-bold text-center  border-b-4 border-gray-400 pb-2">Favorites</h2><ul id="favorites-list"></ul>`;
+                        favoritesList.innerHTML = ` <h2 class="font-bold text-center  border-b-4 border-gray-400 pb-2 mb-2">Favorites</h2><ul id="favorites-list"></ul>`;
                         displayDiv.appendChild(favoritesList);
-
+                    
 
 
 
@@ -301,6 +307,7 @@
                         displayDiv.appendChild(favoritesList);
                     }
                     displayDiv.classList.add('grid-cols-[10%_70%_20%]');
+                    
                 }
 
 
@@ -317,7 +324,7 @@
                         'cursor-pointer', 'hover:bg-blue-200', 'active:scale-95',
                         'transition', 'duration-150', 'ease-in-out', 'hover:scale-95', 'scale-95',
                         'flex', 'flex-col', 'bg-blue-200', 'justify-center', 'items-center',
-                        'text-center', 'text-sm', 'group', 'xfont-bold', 'h-25', 'hover:border-blue-500');
+                        'text-center', 'text-sm', 'group', 'xfont-bold', 'h-25', 'hover:border-blue-500', 'mx-3');
                     favoritesListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id = "sidebarImage" class="rounded-[10px] border-2 border-yellow-400" style = "display:inline; margin-bottom:1rem; xborder-radius:10px; xborder:1px solid black; max-width:120px; max-height:75px" >
                 <h3 style="display:inline; padding:0; font-weight:bold" class="xtext-base">${result.title}</h3><p style="margin:0; padding:2px 0 0 0;" class="xtext-base">${result.summary}</p>
                     <a href="https://${result.wikipediaUrl}" target="_blank" style="display:block" class="link mt-2">Open Wikipedia Page</a>`;
