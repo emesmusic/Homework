@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Map App</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            body {
+
+                background-color: #f4f4f4;
+                color: #333;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+
+            }
+
+            header {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                color: #333;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 8rem;
+                text-align: center;
+            }
+
+            /* #sidebar-list {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            } */
+
+            #map {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+
+            #display-div {
+                box-sizing: border-box;
+                width: 100%;
+                height: calc(100vh - 8rem);
+            }
+
+            .link:hover {
+                text-decoration: underline;
+                color: blue;
+            }
+
+            .link-cancel:hover {
+                text-decoration: underline;
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="xfixed xtop-0 xleft-0 w-full bg-white shadow z-50 px-4 py-2 border-b-4 border-gray-400 xborder-black">
+
+
+
+
+            <div>
+                <h1 class="text-xl font-bold">Welcome to the Map App thing</h1>
+                <p id="message">Search for places!</p>
+                <form id="search-form" class="mt-2">
+                    <label for="results-number">How many results:</label>
+                    <select id="results-number" name="results-number" class="xbg-green-100 text-black p-2 rounded border border-black active:scale-95 
+                        transition duration-150 cursor-pointer mr-3">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10" selected>10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                    <input type="text" id="search-box" placeholder="Enter place"
+                        class="border p-2 mr-2 rounded border-black">
+                    <button id="search-button" type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 active:bg-blue-700 active:scale-95 
+                        transition duration-150 cursor-pointer">Search</button>
+                </form>
+            </div>
+        </header>
+
+        <div id="display-div" class="w-full max-w-full mx-auto">
+            <div id="map"></div>
+        </div>
+
+        <script>
+            (async function () {
+
+                try {
+                    const response = await fetch('apiKeys.json');
+                    if (!response.ok) {
+                        throw new Error(`Error fetching API keys: ${response.status} - ${response.statusText}`);
+                    }
+                    globalThis.apiKeys = await response.json();
+                    (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+                        key: `${apiKeys.google}`,
+                        v: "weekly",
+                    });
+
+                }
+                catch (error) {
+
+                    document.getElementById('message').textContent = `API Key Error: ${error.message}`;
+                    document.getElementById('message').classList.add('text-red-500');
+
+                }
+                const script = document.createElement('script');
+                script.src = '75.js';
+                document.body.appendChild(script);
+
+            })();
+
+        </script>
+    </body>
+</html>
