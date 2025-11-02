@@ -61,7 +61,7 @@
             displayDiv.insertAdjacentHTML('afterbegin', `<aside class="bg-white shadow px-4 py-2 border-r-4 border-gray-400 xborder-black overflow-y-auto">
                 <ul id="sidebar-list"></ul>
             </aside>`);
-            displayDiv.classList.add('grid', 'grid-cols-[20%_80%]');
+            displayDiv.classList.add('grid', 'grid-cols-[10%_90%]');
             sidebarList = document.getElementById('sidebar-list');
         }
         else {
@@ -107,19 +107,20 @@
 
             const title = document.createElement('h3');
             title.innerText = result.title;
-            title.classList.add('inline', 'font-bold');
-            title.style.cssText += 'font-size:20px; margin-left:1rem; padding:0;';
+            title.classList.add('inline', 'font-bold', 'text-base');
+            title.style.cssText += 'xfont-size:20px; margin-left:1rem; padding:0;';
 
             const summary = document.createElement('p');
             summary.innerText = result.summary;
-            summary.style.cssText += 'margin:0; padding:2px 0 0 0; font-size:18px;';
+            summary.style.cssText += 'margin:0; padding:2px 0 0 0; xfont-size:18px;';
+            summary.classList.add('text-sm');
 
             const wikiLink = document.createElement('a');
             wikiLink.href = `https://${result.wikipediaUrl}`;
             wikiLink.target = '_blank';
             wikiLink.innerText = 'Open Wikipedia Page';
-            wikiLink.classList.add('link', 'block');
-            wikiLink.style.cssText += 'margin-top: 1rem;';
+            wikiLink.classList.add('link', 'block', 'mt-2');
+
 
             const addToFavoriteDiv = document.createElement('div');
             addToFavoriteDiv.classList.add('link', 'cursor-pointer', 'mt-4');
@@ -130,6 +131,7 @@
             favoritesImg.classList.add('inline-block');
             const addToFavoritesSpan = document.createElement('span');
             addToFavoritesSpan.innerText = 'Add to Favorites';
+            addToFavoritesSpan.classList.add('font-semibold');
             addToFavoriteDiv.appendChild(favoritesImg);
             addToFavoriteDiv.appendChild(addToFavoritesSpan);
 
@@ -249,7 +251,7 @@
                 'flex', 'flex-col', 'justify-center', 'items-center',
                 'text-center', 'text-sm', 'group', 'xfont-bold', 'h-25', 'hover:border-blue-500');
             sidebarListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id="sidebarImage" class="rounded-[10px] border border-black" style="display:inline; margin-bottom:1rem; xborder-radius:10px; xborder:1px solid black; max-width:120px; max-height:75px">
-                <h3 style="display:inline;font-size:1rem; padding:0; font-weight:bold">${result.title}</h3>` +/*<p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>*/
+                <h3 style="display:inline; padding:0; font-weight:bold">${result.title}</h3>` +/*<p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>*/
                 `<a href="https://${result.wikipediaUrl}" target="_blank" style="display:block" class="link">Open Wikipedia Page</a>`;
 
 
@@ -297,7 +299,7 @@
                     else {
                         displayDiv.appendChild(favoritesList);
                     }
-                    displayDiv.classList.add('grid-cols-[20%_60%_20%]');
+                    displayDiv.classList.add('grid-cols-[10%_70%_20%]');
                 }
 
 
@@ -315,7 +317,7 @@
                         'flex', 'flex-col', 'bg-blue-200', 'justify-center', 'items-center',
                         'text-center', 'text-sm', 'group', 'xfont-bold', 'h-25', 'hover:border-blue-500');
                     favoritesListItem.innerHTML = `<img src="${result.thumbnailImg || 'images/placeholder.jpg'}" id = "sidebarImage" class="rounded-[10px] border-2 border-yellow-400" style = "display:inline; margin-bottom:1rem; xborder-radius:10px; xborder:1px solid black; max-width:120px; max-height:75px" >
-                <h3 style="display:inline;font-size:1rem; padding:0; font-weight:bold">${result.title}</h3><p style="margin:0; padding:2px 0 0 0; font-size:18px;">${result.summary}</p>
+                <h3 style="display:inline; padding:0; font-weight:bold" class="xtext-base">${result.title}</h3><p style="margin:0; padding:2px 0 0 0;" class="xtext-base">${result.summary}</p>
                     <a href="https://${result.wikipediaUrl}" target="_blank" style="display:block" class="link mt-2">Open Wikipedia Page</a>`;
 
                     let removeFromFavorites = document.createElement('div');
@@ -363,8 +365,8 @@
                         favoritesListItem.remove();
                         if (favoritesMarkers.length === 0) {
                             favoritesList.remove();
-                            displayDiv.classList.remove('grid-cols-[20%_60%_20%]');
-                            displayDiv.classList.add('grid-cols-[20%_80%]');
+                            displayDiv.classList.remove('grid-cols-[10%_70%_20%]');
+                            displayDiv.classList.add('grid-cols-[10%_90%]');
 
                         }
 
