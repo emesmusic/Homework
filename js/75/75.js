@@ -230,6 +230,7 @@
                 //marker.infoWindow.closeHandler();
                 marker.infoWindow.close();
                 marker.content.classList.remove('border-blue-500', 'scale-150');
+                marker.content.classList.add('border-black');
                 marker.sidebarListItem.classList.remove('scale-95', 'ease-in-out', 'bg-blue-200');
                 marker.sidebarListItem.classList.add('text-gray-400', 'hover:text-black', 'hover:border-gray-400', 'border-gray-200');
                 const sidebarImage = marker.sidebarListItem.querySelector('#sidebarImage');
@@ -344,16 +345,16 @@
                         if (favoritesAndRegularMarkers.includes(marker)) {
                             marker.content.style.width = '4rem';
                             marker.content.style.height = '3rem';
-                            marker.content.classList.add('rounded-[10px]', 'border-4', 'hover:scale-150');
+                            marker.content.classList.add('rounded-[10px]', 'border-4', 'hover:scale-150', 'hover:border-blue-500');
                             if (openMarker === marker) {
-                                marker.content.classList.add('border-blue-500', 'hover:border-blue-500');
+                                marker.content.classList.add('border-blue-500');
                             }
                             else {
-                                marker.content.classList.add('border-black', 'hover:border-blue-500');
+                                marker.content.classList.add('border-black');
                             }
                             marker.content.src = result.thumbnailImg || 'images/placeholder.jpg';
                             regularMarkers.push(marker);
-                            favoritesMarkers.splice(favoritesMarkers.indexOf(marker), 1);
+                            
                             favoritesAndRegularMarkers.splice(favoritesAndRegularMarkers.indexOf(marker), 1);
 
                         }
@@ -361,7 +362,7 @@
                             marker.map = null;
                         }
 
-
+                        favoritesMarkers.splice(favoritesMarkers.indexOf(marker), 1);
                         favoritesListItem.remove();
                         if (favoritesMarkers.length === 0) {
                             favoritesList.remove();
