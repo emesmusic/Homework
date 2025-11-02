@@ -286,8 +286,8 @@
 
 
                         favoritesList = document.createElement('aside');
-                        favoritesList.classList.add('bg-white', 'shadow', 'px-4', 'py-2', 'border-l-4', 'border-gray-400', 'xborder-black', 'overflow-y-auto');
-                        favoritesList.innerHTML = ` <h2 class="font-bold text-center">Favorites</h2><ul id="favorites-list"></ul>`;
+                        favoritesList.classList.add('bg-white', 'shadow', 'xpx-4', 'py-2', 'border-l-4', 'border-gray-400', 'xborder-black', 'overflow-y-auto');
+                        favoritesList.innerHTML = ` <h2 class="font-bold text-center  border-b-4 border-gray-400 pb-2">Favorites</h2><ul id="favorites-list"></ul>`;
                         displayDiv.appendChild(favoritesList);
 
 
