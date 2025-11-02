@@ -305,6 +305,7 @@
 
 
 
+                const addToFavoritesSpan = marker.infoWindow.content.removeChild(marker.infoWindow.content.lastElementChild);
 
 
 
@@ -362,6 +363,9 @@
                             marker.map = null;
                         }
 
+                        marker.infoWindow.content.appendChild(addToFavoritesSpan);
+
+                        
                         favoritesMarkers.splice(favoritesMarkers.indexOf(marker), 1);
                         favoritesListItem.remove();
                         if (favoritesMarkers.length === 0) {
