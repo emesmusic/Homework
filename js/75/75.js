@@ -236,6 +236,8 @@
                     marker.favoritesListItem.classList.remove('scale-95', 'ease-in-out', 'duration-150', 'bg-blue-200', 'border-blue-500');
                     marker.favoritesListItem.classList.add('border-yellow-400');
                 }
+                openMarker = null;
+
 
             });
 
@@ -321,10 +323,7 @@
                     removeFromFavorites.innerText = 'Remove from Favorites';
                     favoritesListItem.appendChild(removeFromFavorites);
 
-                    marker.content.src = 'images/favorite-final.png';
-                    marker.content.alt = "Favorite marker";
-                    marker.content.className = 'scale-150 hover-scale:150';
-                    marker.content.zIndex = ++zIndex;
+
 
 
 
@@ -343,12 +342,12 @@
                         if (favoritesAndRegularMarkers.includes(marker)) {
                             marker.content.style.width = '4rem';
                             marker.content.style.height = '3rem';
-                            marker.content.classList.add('rounded-[10px]', 'border-4', 'hover:scale-150', 'hover:border-blue-500');
+                            marker.content.classList.add('rounded-[10px]', 'border-4', 'hover:scale-150');
                             if (openMarker === marker) {
-                                marker.content.classList.add('border-blue-500');
+                                marker.content.classList.add('border-blue-500', 'hover:border-blue-500');
                             }
                             else {
-                                marker.content.classList.add('border-black');
+                                marker.content.classList.add('border-black', 'hover:border-blue-500');
                             }
                             marker.content.src = result.thumbnailImg || 'images/placeholder.jpg';
                             regularMarkers.push(marker);
@@ -373,7 +372,10 @@
                     });
 
                 }
-
+                marker.content.src = 'images/favorite-final.png';
+                marker.content.alt = "Favorite marker";
+                marker.content.className = 'scale-150 hover:scale-150';
+                marker.content.zIndex = ++zIndex;
 
                 favoritesMarkers.push(marker);
                 favoritesAndRegularMarkers.push(marker);
