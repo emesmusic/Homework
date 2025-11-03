@@ -170,7 +170,7 @@
                 }
 
 
-                
+
 
 
 
@@ -178,6 +178,7 @@
                 openMarker = marker;
 
                 marker.previousZIndex = marker.zIndex;
+                map.panTo(marker.position);
 
                 infoWindow.open({ map, anchor: marker });
                 marker.zIndex = ++zIndex;
@@ -200,7 +201,7 @@
 
 
 
-                
+
             });
             marker.previousZIndex = marker.zIndex;
             marker.addEventListener('mouseenter', () => {
@@ -296,7 +297,7 @@
                         favoritesList.classList.add('bg-white', 'shadow', 'xpx-4', 'py-2', 'border-l-4', 'border-gray-400', 'xborder-black', 'overflow-y-auto');
                         favoritesList.innerHTML = ` <h2 class="font-bold text-center  border-b-4 border-gray-400 pb-2 mb-2">Favorites</h2><ul id="favorites-list"></ul>`;
                         displayDiv.appendChild(favoritesList);
-                    
+
 
 
 
@@ -307,7 +308,7 @@
                         displayDiv.appendChild(favoritesList);
                     }
                     displayDiv.classList.add('grid-cols-[10%_70%_20%]');
-                    
+
                 }
 
 
@@ -362,7 +363,7 @@
                             }
                             marker.content.src = result.thumbnailImg || 'images/placeholder.jpg';
                             regularMarkers.push(marker);
-                            
+
                             favoritesAndRegularMarkers.splice(favoritesAndRegularMarkers.indexOf(marker), 1);
 
                         }
@@ -372,7 +373,7 @@
 
                         marker.infoWindow.content.appendChild(addToFavoritesSpan);
 
-                        
+
                         favoritesMarkers.splice(favoritesMarkers.indexOf(marker), 1);
                         favoritesListItem.remove();
                         if (favoritesMarkers.length === 0) {
