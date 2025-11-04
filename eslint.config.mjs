@@ -7,9 +7,13 @@ export default defineConfig([
   { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"] },
   { files: ["**/*.js"], languageOptions: { sourceType: "script" } },
   { files: ["**/*.{js,mjs,cjs}"], languageOptions: { globals: globals.browser } },
-  {"rules":{
-    "no-var": "error",
-    "semi" : "error",
-    "use strict": "error"
-  }}
+
+  {
+    "rules": {
+      "no-var": "error",
+      "semi": ["error", "always"],
+      "strict": ["error", "global"],
+      "eqeqeq": ["error", "smart"]
+    }
+  }
 ]);
