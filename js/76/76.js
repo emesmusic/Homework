@@ -9,6 +9,7 @@
     let currentDraggingItem;
     let zIndex = 0;
     let audioPlayed = false;
+    const audioImage = document.getElementById('audio-image');
 
 
 
@@ -40,6 +41,14 @@
     }
 
 
+document.body.addEventListener('click', () => {
+    if (!audioPlayed) {
+        document.getElementById('audio').play();
+        audioPlayed = true;
+        audioImage.src = 'media/speaker-icon.jpg';
+    }
+});
+
     bodyElements.forEach(element => {
 
         element.addEventListener('mousedown', (e) => {
@@ -58,11 +67,22 @@
 
     });
 
-    document.body.addEventListener('mousemove', (e) => {
-        e.preventDefault();
-        if (!audioPlayed) {
+    audioImage.addEventListener('click', () => {
+
+        if (audioImage.src.includes('media/speaker-icon.jpg')) {
+            audioImage.src = 'media/mute-speaker-icon.jpg';
+            document.getElementById('audio').pause();
+        }
+        else {
+            audioImage.src = 'media/speaker-icon.jpg';
             document.getElementById('audio').play();
         }
+
+
+    });
+
+    document.body.addEventListener('mousemove', (e) => {
+        e.preventDefault();
         if (currentDraggingItem) {
 
             currentDraggingItem.style.top = (e.clientY - currentDraggingItem.offsetY) + 'px';
