@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Potato Head</title>
+
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;  
+            }
+
+            body {
+                display: grid;
+                grid-template-columns: 30% 70%;
+            }
+
+            #display-area {
+                background-image: url('media/background.png');
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: center;
+            }
+
+
+
+           #sidebar {
+                background-color: #f0f0f0;
+                height: 100vh;
+                overflow-y: scroll;
+            }
+
+            .body-element {
+                cursor: grab;
+            }
+          
+
+            #audio-image {
+                width: 5rem;
+                height: 5rem;
+                position: absolute;
+                right: 0;
+                top: 0;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="sidebar">
+            <img src="media/0.png" class="body-element potato" id="potato-body">
+
+            <img src="media/2.png" class="body-element" alt="">
+            <img src="media/3.png" class="body-element" alt="">
+            <img src="media/4.png" class="body-element" alt="">
+            <img src="media/5.png" class="body-element" alt="">
+            <img src="media/6.png" class="body-element" alt="">
+            <img src="media/7.png" class="body-element" alt="">
+            <img src="media/8.png" class="body-element" alt="">
+            <img src="media/9.png" class="body-element" alt="">
+            <img src="media/10.png" class="body-element" alt="">
+            <img src="media/11.png" class="body-element" alt="">
+            <img src="media/12.png" class="body-element" alt="">
+            <img src="media/13.png" class="body-element" alt="">
+            <img src="media/14.png" class="body-element" alt="">
+            <img src="media/15.png" class="body-element" alt="">
+            <img src="media/16.png" class="body-element" alt="">
+            <img src="media/17.png" class="body-element" alt="">
+            <img src="media/18.png" class="body-element" alt="">
+            <img src="media/19.png" class="body-element" alt="">
+            <img src="media/20.png" class="body-element" alt="">
+            <img src="media/21.png" class="body-element" alt="">
+            <img src="media/22.png" class="body-element" alt="">
+            <img src="media/23.png" class="body-element" alt="">
+            <img src="media/24.png" class="body-element" alt="">
+            <img src="media/25.png" class="body-element" alt="">
+            <img src="media/26.png" class="body-element" alt="">
+            <img src="media/27.png" class="body-element" alt="">
+
+
+
+          
+        </div>
+        <div id="display-area"></div>
+
+
+        <audio src="media/music.mp3" id="audio"></audio>
+        <img src="media/mute-speaker-icon.jpg" alt="" id="audio-image">
+
+        <script src="77.js"></script>
+    </body>
+
+</html>
