@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            header {
+                height: 50px;
+                background-color: #333;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            #theCanvas {
+                display: block;
+                margin: 0 auto;
+                background-color: #f0f0f0;
+            }
+            form {
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                gap: 10px;
+                padding-left: 10px;
+             
+            }
+            #colorPicker {
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            #content {
+                width: 100vw;
+                height: calc(100vh - 50px);
+            }
+            #ballTails {
+                background-color: red;
+                color: white;
+            }
+            button {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+<form method="post">
+    <label >Color: <input type="color" id="colorPicker" value="#009900" /></label>
+    <label>Ball Tails:
+        <button type="button" id="ballTails">Off</button>
+    </label>
+    <label >Radius: <input type="number" id="radiusPicker" value="10"  min="1" max="130"/></label>
+    <button type="submit" id="createBall">Create Ball</button>
+    
+    
+    <button type="button" id="clearBalls">Clear Balls</button>
+    
+</form>
+
+
+        </header>
+        <div id="content">
+            <canvas id="theCanvas"></canvas>
+        </div>
+
+        <script src="80.js"></script>
+    </body>
+
+</html>
