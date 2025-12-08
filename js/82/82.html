@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+            }
+
+            #content-div {
+                height: calc(100% - 50px);
+                width: 100%;
+            }
+
+            #theCanvas {
+                display: block;
+                border: 3px solid black;
+                box-sizing: border-box;
+                margin: auto;
+            }
+
+            header {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                font-size: large;
+                font-weight: bold;
+                
+            }
+
+            #score {
+                color: blue;
+            }
+            #high-score{
+                color: red;
+            }
+        
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div id="score-div">
+                <label for="score">Score:</label>
+                <span id="score">0</span>
+            </div>
+            <div id="high-score-div">
+                <label for="high-score">Hight Score:</label>
+                <span id="high-score">0</span>
+            </div>
+
+            <span>space : pause </span>
+            <span>"r" : restart</span>
+
+
+        </header>
+        <div id="content-div">
+            <canvas id="theCanvas"></canvas>
+        </div>
+
+        <script src="82.js"></script>
+    </body>
+
+</html>
