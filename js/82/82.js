@@ -15,7 +15,7 @@
 
 
     const pauseImage = document.createElement('img');
-    pauseImage.src = 'pause.png';
+    pauseImage.src = 'media/pause.png';
     pauseImage.style.position = 'absolute';
     pauseImage.style.top = '10rem';
     pauseImage.style.left = '10rem';
@@ -70,19 +70,19 @@
             snakeBodyLeftDown, snakeBodyLeftUp, snakeBodyRightDown, snakeBodyRightUp, apple.img, crunch, crash] = await Promise.all([
 
 
-                loadImageSource('snakeHeadDown.png','img'),
-                loadImageSource('snakeHeadUp.png', 'img'),
-                loadImageSource('snakeHeadLeft.png','img'),
-                loadImageSource('snakeHeadRight.png','img'),
-                loadImageSource('snakeBodyVertical.png','img'),
-                loadImageSource('snakeBodyHorizontal.png','img'),
-                loadImageSource('snakeBodyLeftDown.png','img'),
-                loadImageSource('snakeBodyLeftUp.png','img'),
-                loadImageSource('snakeBodyRightDown.png','img'),
-                loadImageSource('snakeBodyRightUp.png','img'),
-                loadImageSource('apple.png','img'),
-                loadAudioSource('crunch.mp3','audio'),
-                loadAudioSource('crash.mp3','audio')
+                loadImageSource('media/snakeHeadDown.png','img'),
+                loadImageSource('media/snakeHeadUp.png', 'img'),
+                loadImageSource('media/snakeHeadLeft.png','img'),
+                loadImageSource('media/snakeHeadRight.png','img'),
+                loadImageSource('media/snakeBodyVertical.png','img'),
+                loadImageSource('media/snakeBodyHorizontal.png','img'),
+                loadImageSource('media/snakeBodyLeftDown.png','img'),
+                loadImageSource('media/snakeBodyLeftUp.png','img'),
+                loadImageSource('media/snakeBodyRightDown.png','img'),
+                loadImageSource('media/snakeBodyRightUp.png','img'),
+                loadImageSource('media/apple.png','img'),
+                loadAudioSource('media/crunch.mp3','audio'),
+                loadAudioSource('media/crash.mp3','audio')
 
 
             ]);
