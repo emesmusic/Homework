@@ -1,0 +1,63 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.calculator {
+  display: grid;
+  grid-template-areas: "results results results results"
+                 "seven eight nine divide"
+                 "four five six multiply"
+                 "one two three minus"
+                 "clear zero equals plus";
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #333333;
+  border-radius: 10px;
+}
+input[type="text"] {
+  grid-area: results;
+  font-size: 2em;
+  padding: 10px;
+  text-align: right;
+  border: none;
+  border-radius: 5px;
+  background-color: #222222;
+  color: #ffffff;
+}
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px #555555;
+}
+.button {
+  font-size: 1.5em;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #444444;
+  color: #ffffff;
+  transition: background-color 0.3s;
+}
+.button:hover {
+  background-color: #555555;
+}
+.button:active {
+  background-color: #666666;
+}
