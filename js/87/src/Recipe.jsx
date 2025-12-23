@@ -28,14 +28,14 @@ export default class Recipe extends Component {
           picture && (
             <div>
               {pictureShowing && <img src={picture} />}
-
+              <div />
               <button onClick={this.togglePicture}>{pictureShowing ? 'hide' : 'show'}</button>
 
             </div>
 
           )
         }
-        { !picture && <p>No picture available</p>}
+        {!picture && <p>No picture available</p>}
 
         <ListComponent name="ingredients" items={ingredients} />
 
