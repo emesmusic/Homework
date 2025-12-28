@@ -12,7 +12,7 @@ export default defineConfig([
     "rules": {
       "no-var": "error",
       "semi": ["error", "always"],
-      "strict": ["error", "global"],
+      "strict": ["error", "smart"],
       "eqeqeq": ["error", "smart"]
     }
   }
