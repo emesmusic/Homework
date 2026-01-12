@@ -10,29 +10,36 @@ import ContactUs from './ContactUs'
 
 
 export default function App() {
-useEffect(async ()=>{
+
+let [users, setUsers] = useState([]);
+
+useEffect(()=>{
+  
+  (async function (){
   try{
     const usersResponse = await fetch('https://jsonplaceholder.typicode.com/users')
     if(usersResponse.ok !== true){
-      throw new Error('Failed to fetch users')
+      throw new Error(usersResponse.status + ' ' + usersResponse.statusText)
     }
-    const users = await usersResponse.json();
-    console.log(users)
+    setUsers(await usersResponse.json());
+    
 
-  }catch(error){}
+  }catch(error){
+    console.error('Error fetching users:', error.message)
+  }
   
 
+  })()
 
-
-},[])
+},[]);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Header />}>
-          <Route index element={<Users />} />
+          <Route index element={<Users users={users} />} />
           <Route path='/users/:id' element={<User />} />
-          <Route path='/users/:id/posts/:id' element={<Post />} />
+          <Route path='/users/:userId/posts/:postId' element={<Post />} />
           <Route path='/contact-us' element={<ContactUs />} />
         </Route>
         <Route path='*' element={<NotFound />} />
