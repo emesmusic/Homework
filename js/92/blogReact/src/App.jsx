@@ -10,7 +10,21 @@ import ContactUs from './ContactUs'
 
 
 export default function App() {
+useEffect(async ()=>{
+  try{
+    const usersResponse = await fetch('https://jsonplaceholder.typicode.com/users')
+    if(usersResponse.ok !== true){
+      throw new Error('Failed to fetch users')
+    }
+    const users = await usersResponse.json();
+    console.log(users)
 
+  }catch(error){}
+  
+
+
+
+},[])
 
   return (
     <BrowserRouter>
