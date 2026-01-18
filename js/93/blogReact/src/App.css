@@ -103,9 +103,15 @@ header a:hover,
 
 }
 
-.contactus-div {
+.contact-us-div {
     text-align: center;
     margin-top: 50px;
+}
+.contact-us-div h1 {
+    margin-bottom: 3px;
+}
+.contact-us-div h5 {
+    margin-top: 0px;
 }
 
 .success {
@@ -152,4 +158,12 @@ header a:hover,
 .message-input {
     min-height:200px;
     resize: vertical;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
 }
