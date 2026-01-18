@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet, useNavigate, useParams } from 'react-router'
+import { Outlet, useParams } from 'react-router'
 
 export default function UserHeader(props) {
   const { userId } = useParams();
@@ -7,7 +7,7 @@ export default function UserHeader(props) {
   const { users } = props;
 
   const userInfo = users.find(user => user.id === parseInt(userId));
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     (async function () {
@@ -37,14 +37,14 @@ export default function UserHeader(props) {
   return (
 
     <>
-
-      <div className='user-header' >
+      {userInfo ? <div className='user-header' >
         <h2>{userInfo.name}</h2>
         <p><a href={`http://${userInfo.website}`} target="_blank" rel="noreferrer">{userInfo.website}</a></p>
         <p>{userInfo.company.name}</p>
         <p>{userInfo.company.catchPhrase}</p>
 
-      </div>
+      </div> : <img src='/loading.gif' alt='Loading...' /> }
+
       <Outlet context={{ posts }} />
     </>
   )
