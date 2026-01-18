@@ -37,13 +37,13 @@ export default function UserHeader(props) {
   return (
 
     <>
-      {userInfo ? <div className='user-header' >
+      {userInfo && <div className='user-header' >
         <h2>{userInfo.name}</h2>
         <p><a href={`http://${userInfo.website}`} target="_blank" rel="noreferrer">{userInfo.website}</a></p>
         <p>{userInfo.company.name}</p>
         <p>{userInfo.company.catchPhrase}</p>
 
-      </div> : <img src='/loading.gif' alt='Loading...' /> }
+      </div>  }
 
       <Outlet context={{ posts }} />
     </>

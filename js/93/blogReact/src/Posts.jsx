@@ -13,6 +13,7 @@ export default function Posts() {
     }
     return (<div className='posts-list'>
         {
+            posts.length === 0 ? (<img src='/loading.gif' alt='Loading...' />) :(
             posts.map(post => (
                 <div className='post-card' key={post.id} >
                     <h3>{post.title}</h3>
@@ -24,7 +25,7 @@ export default function Posts() {
                 </div>
 
             ))
-
+        )
         }
     </div>)
 }
