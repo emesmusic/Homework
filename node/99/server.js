@@ -19,8 +19,9 @@ app.get('/function/subtract', (req, res) => {
 });
 
 
-
 app.get('/function/custom', parseOperatorMiddleware, customOperatorMiddleware)
 app.get('/function/custom/:operator', parseOperatorMiddleware, customOperatorMiddleware)
 
 
+app.get('/function/custom', parseOperatorMiddleware, customOperatorMiddleware);
+app.get('/function/custom/:operator', parseOperatorMiddleware, customOperatorMiddleware);
