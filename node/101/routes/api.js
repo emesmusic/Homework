@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 module.exports = router;
 
-
+router.get('/contacts', (req, res) => {
+    res.json(req.app.locals.contacts);
+});
 router.get('/:id', (req, res) => {
     const contact = req.app.locals.contacts.find(contact => contact.id === Number(req.params.id));
     if (!contact) {
@@ -16,6 +18,3 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.get('/contacts', (req, res) => {
-    res.json(req.app.locals.contacts);
-});
