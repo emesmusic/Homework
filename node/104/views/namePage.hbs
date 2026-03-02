@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}
+</p>
+<form action="/name-page" method="GET">
+    <label for="name">What's your name?</label>
+    <input type="text" name="name" />
+    <button>Submit</button>
+</form>
+{{#name}}
+<h3>Your name is {{this}}</h3>
+{{/name}}
+
+<a href="/">
+    <h3>Views page</h3>
+</a>
+
+</p>
