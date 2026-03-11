@@ -1,0 +1,183 @@
+
+C:\Dev\start_mongo>cd C:\Users\stern
+
+C:\Users\stern>mongosh
+Current Mongosh Log ID: 69b191eba85e67d9b37c2906
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:          8.2.5
+Using Mongosh:          2.7.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-03-11T16:01:45.268+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2026-03-11T16:01:45.270+00:00: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+------
+
+test> show dbs
+admin   40.00 KiB
+config  12.00 KiB
+local   64.00 KiB
+
+test> use x
+switched to db x
+
+x> db.x.find()
+
+x> db.x.insertOne({first_name: 'Jack', last_name: 'Smith'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b1924ca85e67d9b37c2907')
+}
+
+x> db.x.find()
+[
+  {
+    _id: ObjectId('69b1924ca85e67d9b37c2907'),
+    first_name: 'Jack',
+    last_name: 'Smith'
+  }
+]
+
+x> db.x.insertMany([{first_name: 'Harry', last_name: 'Smith'},{first_name: 'Andrew', last_name: 'McClusky'},{first_name:'Michael', last_name:'Tutty'},{first_name:'Nick',last_name:'Ferrari'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b1930ca85e67d9b37c2908'),
+    '1': ObjectId('69b1930ca85e67d9b37c2909'),
+    '2': ObjectId('69b1930ca85e67d9b37c290a'),
+    '3': ObjectId('69b1930ca85e67d9b37c290b')
+  }
+}
+
+x> db.x.find()
+[
+  {
+    _id: ObjectId('69b1924ca85e67d9b37c2907'),
+    first_name: 'Jack',
+    last_name: 'Smith'
+  },
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c2908'),
+    first_name: 'Harry',
+    last_name: 'Smith'
+  },
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c2909'),
+    first_name: 'Andrew',
+    last_name: 'McClusky'
+  },
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c290a'),
+    first_name: 'Michael',
+    last_name: 'Tutty'
+  },
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c290b'),
+    first_name: 'Nick',
+    last_name: 'Ferrari'
+  }
+]
+
+x> db.x.find({first_name:'Andrew'})
+[
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c2909'),
+    first_name: 'Andrew',
+    last_name: 'McClusky'
+  }
+]
+
+x> db.x.find({last_name:'Smith'})
+[
+  {
+    _id: ObjectId('69b1924ca85e67d9b37c2907'),
+    first_name: 'Jack',
+    last_name: 'Smith'
+  },
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c2908'),
+    first_name: 'Harry',
+    last_name: 'Smith'
+  }
+]
+
+x> db.x.find({first_name:'Michael', last_name:'Tutty'})
+[
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c290a'),
+    first_name: 'Michael',
+    last_name: 'Tutty'
+  }
+]
+
+x> db.x.find({},{first_name:1})
+[
+  { _id: ObjectId('69b1924ca85e67d9b37c2907'), first_name: 'Jack' },
+  { _id: ObjectId('69b1930ca85e67d9b37c2908'), first_name: 'Harry' },
+  { _id: ObjectId('69b1930ca85e67d9b37c2909'), first_name: 'Andrew' },
+  { _id: ObjectId('69b1930ca85e67d9b37c290a'), first_name: 'Michael' },
+  { _id: ObjectId('69b1930ca85e67d9b37c290b'), first_name: 'Nick' }
+]
+
+[
+  { _id: ObjectId('69b1924ca85e67d9b37c2907'), last_name: 'Smith' },
+  { _id: ObjectId('69b1930ca85e67d9b37c2908'), last_name: 'Smith' },
+  { _id: ObjectId('69b1930ca85e67d9b37c2909'), last_name: 'McClusky' },
+  { _id: ObjectId('69b1930ca85e67d9b37c290a'), last_name: 'Tutty' },
+  { _id: ObjectId('69b1930ca85e67d9b37c290b'), last_name: 'Ferrari' }
+]
+
+x> db.x.find({},{first_name:1}).sort({first_name:1})
+[
+  { _id: ObjectId('69b1930ca85e67d9b37c2909'), first_name: 'Andrew' },
+  { _id: ObjectId('69b1930ca85e67d9b37c2908'), first_name: 'Harry' },
+  { _id: ObjectId('69b1924ca85e67d9b37c2907'), first_name: 'Jack' },
+  { _id: ObjectId('69b1930ca85e67d9b37c290a'), first_name: 'Michael' },
+  { _id: ObjectId('69b1930ca85e67d9b37c290b'), first_name: 'Nick' }
+]
+
+x> db.x.find({first_name:'Michael', last_name:'Tutty'})
+[
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c290a'),
+    first_name: 'Michael',
+    last_name: 'Tutty'
+  }
+]
+x> db.x.find().sort({last_name:1, first_name:1})
+[
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c290b'),
+    first_name: 'Nick',
+    last_name: 'Ferrari'
+  },
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c2909'),
+    first_name: 'Andrew',
+    last_name: 'McClusky'
+  },
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c2908'),
+    first_name: 'Harry',
+    last_name: 'Smith'
+  },
+  {
+    _id: ObjectId('69b1924ca85e67d9b37c2907'),
+    first_name: 'Jack',
+    last_name: 'Smith'
+  },
+  {
+    _id: ObjectId('69b1930ca85e67d9b37c290a'),
+    first_name: 'Michael',
+    last_name: 'Tutty'
+  }
+]
+
+
+
+
+
+
+
