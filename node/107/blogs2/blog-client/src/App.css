@@ -1,0 +1,18 @@
+form {
+    width: 400px;
+    margin: auto;
+}
+
+form label,
+form button {
+    display: block;
+    margin: auto;
+    padding: 4px;
+}
+
+form input, form textarea{width: 100%;}
+
+form label{width: 400px;}
+div{text-align: center;
+    border: 1px solid black;
+}
