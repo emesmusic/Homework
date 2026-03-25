@@ -1,9 +1,13 @@
+body{
+    padding-left: 5px;
+    padding-right: 5px;
+}
 header {
     font-size: 25px;
     text-align: center;
     padding: 1rem 0;
     border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 header a {
@@ -15,10 +19,54 @@ header a {
     transition: background-color 0.2s;
 }
 
-header a:hover {
+header a:hover, .user-card:hover, .user-header:hover {
     background-color: #f5f5f5;
+    cursor: pointer;
 }
 
 .active {
     background-color: #f5f5f5;
+}
+.user-card{
+    text-align: center;
+    border : 1px solid black;
+   border-radius: 10px;
+    height: 175px;
+    width: 300px
+}
+.user-card-div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-header{
+    text-align: center;
+    border : 1px solid black;
+   border-radius: 10px;
+    height: 175px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    padding-top: 10px;
+    cursor: pointer;
+}
+.posts-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.post-card{
+    border : 1px solid black;
+   border-radius: 10px;
+    height: 250px;
+    width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
